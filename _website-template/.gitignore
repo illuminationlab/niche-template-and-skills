@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Secrets (never commit these)
+.env
+.env.local
+
+# Build / research / playbook meta artifacts.
+# These live in the workspace for traceability but must NEVER be pushed to
+# the public niche repo — Coolify's nixpacks staticfile provider publishes
+# everything at repo root, so a committed foo.md ends up at /foo.md publicly.
+content.md
+research-brief.md
+variables.json
+NICHE-BUILD-PLAYBOOK.md
+
+# Master brand source files (only the resized public/brand/* should ship)
+master-logo.*
+master-square.*

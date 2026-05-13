@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Med Spa CRM Features &mdash; AI, Marketing &amp; More | [PRODUCT_NAME]</title>
+  <meta name="description" content="Every feature a med spa needs in one platform. AI receptionist, CRM, booking, SMS marketing, reputation management, automation, and analytics — no extra tools required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=13">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='[ACCENT_COLOR_URL]'/><text x='6' y='24' font-size='22' font-weight='bold' fill='%230B0B0B'>NM</text></svg>">
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="container">
+      New: Voice AI outbound calls &mdash; lead to booked appointment in under 60 seconds &mdash; <a href="book-demo.html">See it live</a>
+      <button class="announcement-close" aria-label="Close announcement" style="background:none;border:none;color:inherit;margin-left:16px;cursor:pointer;font-size:1.1rem;">&times;</button>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header has-announcement">
+    <div class="header-inner">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="8" fill="[ACCENT_COLOR]"/>
+            <path d="M8 10v16h3V15.5L21 26h3V10h-3v10.5L11 10H8z" fill="#0B0B0B"/>
+          </svg>
+          Needle<span>Moved</span>
+        </a>
+
+        <nav class="nav-main" aria-label="Main navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="features.html" class="nav-link active">Features</a>
+          <a href="use-cases.html" class="nav-link">Use Cases</a>
+          <a href="pricing.html" class="nav-link">Pricing</a>
+          <div class="nav-item">
+            <a href="resources/index.html" class="nav-link">
+              Resources
+              <svg class="chevron" viewBox="0 0 12 8" fill="none"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <div class="dropdown">
+              <a href="resources/blog.html" class="dropdown-link">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                Blog
+              </a>
+              <a href="resources/playbook.html" class="dropdown-link">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                Marketing Playbook
+              </a>
+              <a href="resources/revenue-calculator.html" class="dropdown-link">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+                Revenue Calculator
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="resources/getting-started.html" class="dropdown-link">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                Getting Started Guide
+              </a>
+            </div>
+          </div>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="book-demo.html" class="btn btn-primary btn-sm">
+            Book a Demo
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <button class="mobile-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></div>
+    <div class="mobile-nav-item"><a href="features.html" class="mobile-nav-link">Features</a></div>
+    <div class="mobile-nav-item"><a href="use-cases.html" class="mobile-nav-link">Use Cases</a></div>
+    <div class="mobile-nav-item"><a href="pricing.html" class="mobile-nav-link">Pricing</a></div>
+    <div class="mobile-nav-item">
+      <a href="#" class="mobile-nav-link" data-toggle>
+        Resources
+        <svg class="chevron" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="mobile-submenu">
+        <a href="resources/blog.html">Blog</a>
+        <a href="resources/playbook.html">Marketing Playbook</a>
+        <a href="resources/revenue-calculator.html">Revenue Calculator</a>
+        <a href="resources/getting-started.html">Getting Started Guide</a>
+      </div>
+    </div>
+    <div class="mobile-nav-item"><a href="about.html" class="mobile-nav-link">About</a></div>
+    <div class="mobile-nav-item"><a href="contact.html" class="mobile-nav-link">Contact</a></div>
+    <div style="padding:24px 0;">
+      <a href="book-demo.html" class="btn btn-primary" style="width:100%;justify-content:center;">Book a Demo</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero section--dark">
+      <div class="hero-glow"></div>
+      <div class="container">
+        <div class="hero-content reveal" style="max-width:900px;margin:0 auto;text-align:center;">
+          <div class="hero-eyebrow" style="margin:0 auto 24px;">
+            <span class="dot"></span>
+            The Complete Feature Set
+          </div>
+          <h1>Every tool your med spa needs.<br><span class="highlight">One platform. Zero duct tape.</span></h1>
+          <p>[PRODUCT_NAME] replaces the disconnected stack of booking apps, marketing tools, CRM spreadsheets, phone systems, and review platforms that most med spas are juggling today. Every feature below is built into a single system &mdash; designed around the workflows med spa teams actually use every day.</p>
+          <div class="hero-buttons" style="justify-content:center;">
+            <a href="book-demo.html" class="btn btn-primary btn-lg">
+              Book a Demo
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AI-POWERED TOOLS ===== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">AI-Powered Tools</span>
+          <h2>AI that works while you sleep.</h2>
+          <p>Six AI capabilities built into [PRODUCT_NAME] &mdash; not add-ons, not integrations, not extra fees.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voice AI split -->
+    <section class="section section--darker" id="voice-ai">
+      <div class="container">
+        <div class="split reveal">
+          <div class="split-content">
+            <span class="section-eyebrow">Voice AI</span>
+            <h2>Your 24/7 AI receptionist.</h2>
+            <p>Voice AI is a phone-based AI agent that answers inbound calls, handles patient inquiries, and takes real action &mdash; so nothing falls through the cracks after hours or during busy treatment blocks. It greets patients naturally, checks your live calendar, books appointments, creates contacts, and triggers follow-up workflows mid-call.</p>
+            <ul class="checklist" style="margin-bottom:32px;">
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>200+ voices</strong> with full control over tone, language, pace, and personality.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Outbound callbacks</strong> within seconds of a form fill &mdash; while the lead is still thinking about Botox.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Voice AI Chat Widget</strong> embeds on your site &mdash; visitors speak to your AI agent live in their browser.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Pennies per call.</strong> Works on LC Phone and Twilio numbers.</li>
+            </ul>
+            <a href="book-demo.html" class="btn btn-primary">See Voice AI in action<svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <div class="split-visual" style="aspect-ratio:auto;background:transparent;border:none;overflow:visible;display:block;">
+            <div class="card card-gradient" style="padding:36px;">
+              <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;">
+                <div style="width:44px;height:44px;border-radius:50%;background:var(--color-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+                </div>
+                <div>
+                  <div style="font-weight:600;">Voice AI &mdash; Live Call</div>
+                  <div style="font-size:0.85rem;color:var(--color-text-secondary);">Inbound &middot; 0:42 elapsed</div>
+                </div>
+              </div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:16px 18px;margin-bottom:12px;line-height:1.5;">
+                <div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:6px;text-transform:uppercase;">Caller</div>
+                <div>&ldquo;Hi, I was hoping to book a Botox consultation for this Friday.&rdquo;</div>
+              </div>
+              <div style="background:rgba(232,180,160,0.08);border:1px solid rgba(232,180,160,0.22);border-radius:14px;padding:16px 18px;margin-bottom:16px;line-height:1.5;">
+                <div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--color-accent);margin-bottom:6px;text-transform:uppercase;">Voice AI</div>
+                <div>&ldquo;I&rsquo;d be happy to get that on the schedule. Dr. Chen has 2:15 or 4:30 available on Friday. Which works better?&rdquo;</div>
+              </div>
+              <div style="display:flex;gap:8px;font-size:0.8rem;color:var(--color-text-secondary);flex-wrap:wrap;">
+                <span style="background:var(--color-bg-card);padding:6px 12px;border-radius:999px;">&check; Booked</span>
+                <span style="background:var(--color-bg-card);padding:6px 12px;border-radius:999px;">&check; Contact created</span>
+                <span style="background:var(--color-bg-card);padding:6px 12px;border-radius:999px;">&check; Confirmation sent</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conversation AI split (chat card on left, copy on right) -->
+    <section class="section section--dark" id="conversation-ai">
+      <div class="container">
+        <div class="split reveal">
+          <div class="split-visual" style="aspect-ratio:auto;background:transparent;border:none;overflow:visible;display:block;">
+            <div class="card card-gradient" style="padding:36px;">
+              <div style="font-size:0.75rem;letter-spacing:0.08em;color:var(--color-text-muted);margin-bottom:18px;text-transform:uppercase;">Instagram DM</div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:16px 18px;margin-bottom:12px;line-height:1.5;">&ldquo;Do you guys do lip filler? How much?&rdquo;</div>
+              <div style="background:rgba(232,180,160,0.08);border:1px solid rgba(232,180,160,0.22);border-radius:14px;padding:16px 18px;margin-bottom:12px;line-height:1.5;"><div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--color-accent);margin-bottom:6px;text-transform:uppercase;">Conversation AI</div>We do &mdash; Juvederm and Restylane, starting at $650/syringe. Want me to check consult availability this week?</div>
+              <div style="background:rgba(255,255,255,0.04);border-radius:14px;padding:16px 18px;margin-bottom:12px;line-height:1.5;">&ldquo;Yes, Thursday afternoon if possible.&rdquo;</div>
+              <div style="background:rgba(232,180,160,0.08);border:1px solid rgba(232,180,160,0.22);border-radius:14px;padding:16px 18px;line-height:1.5;"><div style="font-size:0.7rem;letter-spacing:0.08em;color:var(--color-accent);margin-bottom:6px;text-transform:uppercase;">Conversation AI</div>Booked &mdash; Thursday 3:30 with Dr. Chen. Confirmation texted.</div>
+            </div>
+          </div>
+          <div class="split-content">
+            <span class="section-eyebrow">Conversation AI</span>
+            <h2>Instant answers on every channel.</h2>
+            <p>Conversation AI is a text-based AI agent that lives on your website chat and across every messaging channel &mdash; SMS, Instagram DMs, Facebook Messenger, and WhatsApp. It answers questions, qualifies leads, books appointments, and escalates to your team when a human touch is needed.</p>
+            <ul class="checklist" style="margin-bottom:32px;">
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Trained on your data</strong> &mdash; documents, FAQs, service descriptions, and website content via web crawler.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Qualifies leads</strong> by treatment interest, timeline, budget, and location &mdash; then routes to the right pipeline stage.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Suggestive or fully automated</strong> &mdash; your call, per channel.</li>
+              <li><svg viewBox="0 0 20 20" fill="none"><path d="M16.667 5L7.5 14.167 3.333 10" stroke="[ACCENT_COLOR]" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Unified inbox</strong> &mdash; every conversation in one place, regardless of channel.</li>
+            </ul>
+            <a href="book-demo.html" class="btn btn-primary">Explore Conversation AI<svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Remaining AI tools grid -->
+    <section class="section section--darker">
+      <div class="container">
+        <div class="grid grid-2">
+          <div class="card card-gradient feature-card reveal" id="ai-workflow-builder">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3>AI Workflow Builder</h3>
+            <p>Describe what you want in plain English: &ldquo;When a new lead fills out the Botox consultation form, send a confirmation text, wait two hours, send a follow-up email, and if they haven&rsquo;t booked within 48 hours, trigger a Voice AI call.&rdquo; The AI builds the complete workflow &mdash; triggers, actions, delays, IF/THEN logic &mdash; automatically.</p>
+            <a href="book-demo.html" class="card-link">Try the AI workflow builder<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="funnel-builder">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18l-7 10v6l-4-2v-4L3 3z"/></svg>
+            </div>
+            <h3>Funnel &amp; Website AI Builder</h3>
+            <p>Generate full landing pages and booking funnels from a single prompt. Describe your offer &mdash; &ldquo;Create a landing page for our summer Botox event with a $50 discount&rdquo; &mdash; and the AI produces a complete, conversion-optimized page with headline, copy, images, form, and CTA.</p>
+            <a href="book-demo.html" class="card-link">Build a funnel with AI<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="content-ai">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Content AI</h3>
+            <p>On-brand copy in seconds. Generate email campaigns, SMS messages, social posts, ad copy, blog drafts, and image concepts &mdash; all tailored to your med spa&rsquo;s brand voice. Understands aesthetics terminology and produces copy that sounds like a knowledgeable marketing manager, not a robot.</p>
+            <a href="book-demo.html" class="card-link">Try Content AI<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="reputation-ai">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Reputation AI</h3>
+            <p>Automatically responds to every Google review with a natural, human-like tone that matches your brand. Positive reviews get personalized thank-you responses. Negative reviews get thoughtful, professional replies that demonstrate care without being defensive.</p>
+            <a href="book-demo.html" class="card-link">See Reputation AI<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CRM & LEAD MANAGEMENT ===== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">CRM &amp; Lead Management</span>
+          <h2>Every patient. Every stage. One view.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card card-gradient feature-card reveal" id="crm">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3>CRM &amp; Lead Pipelines</h3>
+            <p>Track every patient from first inquiry to loyal member in a visual pipeline. See where every lead stands, what follow-up they need, and which stage they&rsquo;re in.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="call-tracking">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <h3>Call Tracking &amp; Recording</h3>
+            <p>Know exactly which ad, landing page, or campaign generated each call. Record calls for QA. Every call logged to the patient&rsquo;s contact record.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="analytics">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <h3>Tracking &amp; Analytics Dashboards</h3>
+            <p>Revenue by provider, cost per lead by channel, booking conversion rates, no-show rates, campaign ROI, and membership growth &mdash; all in dashboards that answer &ldquo;What is actually working?&rdquo;</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCHEDULING ===== -->
+    <section class="section section--darker">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">Scheduling &amp; Booking</span>
+          <h2>Fill the calendar without playing phone tag.</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="card card-gradient feature-card reveal" id="scheduling">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <h3>Scheduling, Booking &amp; Appointments</h3>
+            <p>Online booking that syncs with provider calendars, treatment room availability, and equipment schedules. Patients book the exact service they want with the right provider &mdash; without playing phone tag with your front desk.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="missed-call-text-back">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>Missed Call Text-Back</h3>
+            <p>When a call goes unanswered, [PRODUCT_NAME] auto-texts: &ldquo;Hey, we missed your call! How can we help?&rdquo; That single text recovers leads that would otherwise disappear forever &mdash; because <strong>85% of callers who reach voicemail never call back</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MARKETING & CAMPAIGNS ===== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">Marketing &amp; Campaigns</span>
+          <h2>Reach the right patient on the right channel.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card card-gradient feature-card reveal" id="email">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <h3>Email Marketing &amp; Campaigns</h3>
+            <p>Drag-and-drop templates built for med spa promotions. Announce new services, promote seasonal offers, send post-treatment care, and nurture leads through drip sequences that convert.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="sms">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+            <h3>Two-Way SMS &amp; Messaging</h3>
+            <p>Text patients directly &mdash; confirmations, reminders, follow-ups, promotions. Patients reply and the conversation continues in your unified inbox. SMS sees <strong>98% open rates</strong> vs. 20% for email.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="broadcast">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></div>
+            <h3>Broadcast Campaigns</h3>
+            <p>Send targeted campaigns across email, SMS, WhatsApp, and Messenger &mdash; from one screen. Segment by treatment history, membership status, last visit date, or any custom field.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal" id="social">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+            <h3>Social Media Planner</h3>
+            <p>Plan, create, schedule, and publish across all your platforms from inside [PRODUCT_NAME]. Use Content AI to generate post ideas, captions, and image concepts. No more logging into five different apps.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="ads">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+            <h3>Ad Manager</h3>
+            <p>Run and manage Google, Facebook, and Instagram Ads directly from [PRODUCT_NAME]. See exactly which ads produce booked appointments and revenue &mdash; not just clicks and impressions.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="automation">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+            <h3>Automation Workflows</h3>
+            <p>Build multi-step automations triggered by patient actions. A form submission triggers a confirmation text, a 24-hour reminder email, a post-treatment review request, and a rebooking nudge two weeks later. Set it once; it runs forever.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PATIENT EXPERIENCE & OPERATIONS ===== -->
+    <section class="section section--darker">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">Patient Experience &amp; Operations</span>
+          <h2>The day-to-day tools that keep practices running.</h2>
+        </div>
+        <div class="grid grid-3">
+          <div class="card card-gradient feature-card reveal" id="reputation">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <h3>Reputation Management</h3>
+            <p>Automatically request Google reviews after every appointment via SMS or email. Monitor reviews across platforms. Pair with Reputation AI for automatic, human-like responses.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="document-signing">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg></div>
+            <h3>Document Signing</h3>
+            <p>Send consent forms, intake paperwork, and treatment agreements digitally. Patients sign on their phone before they walk in. Every signed document saved to their contact record.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="funnels">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18l-7 10v6l-4-2v-4L3 3z"/></svg></div>
+            <h3>Funnels &amp; Landing Pages</h3>
+            <p>Drag-and-drop builder with templates designed for med spa offers. Forms connect directly to your CRM pipeline so leads are captured and followed up on instantly.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal" id="membership">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3>Membership &amp; Course Portals</h3>
+            <p>Tiered monthly plans, loyalty perks, exclusive pricing, and treatment bundles &mdash; with automated billing and renewal reminders. Members visit <strong>2.9x more often</strong> and spend <strong>35% more</strong>.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-1" id="payments">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+            <h3>Invoicing &amp; Payments</h3>
+            <p>Send invoices, collect payments, and process transactions directly inside [PRODUCT_NAME]. Accept credit cards, set up recurring membership billing, and keep financials tied to each patient.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal reveal-delay-2" id="affiliate">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg></div>
+            <h3>Affiliate Manager</h3>
+            <p>Launch referral programs that reward patients, influencers, or partners for sending new clients. Track every referral, automate payouts, and turn your happiest patients into your most effective marketing channel.</p>
+          </div>
+          <div class="card card-gradient feature-card reveal" id="mobile-app" style="grid-column:span 3;max-width:600px;margin:0 auto;">
+            <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <h3>White-Label Mobile App</h3>
+            <p>Give your patients a branded mobile app with your logo, colors, and practice name. They book, message your team, view treatment history, and manage their membership &mdash; from an app that looks and feels like yours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMPARISON TABLE ===== -->
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-eyebrow">The Comparison That Tells the Whole Story</span>
+          <h2>Five separate tools vs. [PRODUCT_NAME].</h2>
+        </div>
+        <div class="card reveal" style="padding:0;overflow:hidden;">
+          <div style="overflow-x:auto;">
+            <table style="width:100%;border-collapse:collapse;">
+              <thead>
+                <tr style="background:rgba(232,180,160,0.08);">
+                  <th style="text-align:left;padding:18px 24px;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08);">Capability</th>
+                  <th style="text-align:left;padding:18px 24px;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08);">Using 5 Separate Tools</th>
+                  <th style="text-align:left;padding:18px 24px;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.08);color:var(--color-accent);">Using [PRODUCT_NAME]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Monthly software cost</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">$500&ndash;$1,200+ across tools</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">One predictable platform fee</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Data lives in</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">5 disconnected databases</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">One unified CRM</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Lead follow-up speed</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Hours (or never)</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Seconds &mdash; via Voice AI and automation</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>After-hours phone coverage</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Voicemail (85% never call back)</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Voice AI answers every call, 24/7</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Marketing campaigns</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Log into 3 apps, export/import lists</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">One-click broadcasts across all channels</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Review management</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Manual, inconsistent</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Automated requests + AI responses</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Reporting &amp; attribution</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Spreadsheet gymnastics</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">One real-time dashboard</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>No-show reduction</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Maybe a manual reminder</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Automated SMS/email sequences</td></tr>
+                <tr><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);"><strong>Patient messaging</strong></td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Scattered across platforms</td><td style="padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.05);">Unified inbox &mdash; calls, texts, DMs, chat</td></tr>
+                <tr><td style="padding:16px 24px;"><strong>Onboarding time</strong></td><td style="padding:16px 24px;">Weeks per tool</td><td style="padding:16px 24px;">Days for the entire platform</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BOTTOM CTA ===== -->
+    <section class="cta-section section--darker">
+      <div class="container">
+        <h2 class="reveal">Replace your stack with one platform.</h2>
+        <p class="reveal" style="max-width:640px;">Every feature included. One predictable base fee plus pay-as-you-go for AI and messaging. No long-term contracts.</p>
+        <div class="cta-buttons reveal">
+          <a href="book-demo.html" class="btn btn-primary btn-lg">Book a Demo<svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="pricing.html" class="btn btn-outline">See Pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <rect width="36" height="36" rx="8" fill="[ACCENT_COLOR]"/>
+              <path d="M8 10v16h3V15.5L21 26h3V10h-3v10.5L11 10H8z" fill="#0B0B0B"/>
+            </svg>
+            Needle<span>Moved</span>
+          </a>
+          <p>The all-in-one growth platform built exclusively for med spas. More bookings. Faster responses. Loyal patients. One platform.</p></div>
+
+        <div class="footer-col">
+          <h6>Platform</h6>
+          <a href="features.html#voice-ai">Voice AI</a>
+          <a href="features.html#conversation-ai">Conversation AI</a>
+          <a href="features.html#crm">CRM &amp; Pipelines</a>
+          <a href="features.html#scheduling">Scheduling</a>
+          <a href="features.html#automation">Automation</a>
+          <a href="features.html#analytics">Analytics</a>
+          <a href="features.html#membership">Membership</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Use Cases</h6>
+          <a href="use-cases.html#solo-owner">Solo Owner</a>
+          <a href="use-cases.html#front-desk">Front Desk</a>
+          <a href="use-cases.html#multi-location">Multi-Location</a>
+          <a href="use-cases.html#practice-manager">Practice Manager</a>
+          <a href="use-cases.html#retention">Retention</a>
+          <a href="use-cases.html#new-med-spa">New Med Spa</a>
+        </div>
+
+        <div class="footer-col">
+          <h6>Company</h6>
+          <a href="about.html">About Us</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="resources/blog.html">Blog</a>
+          <a href="resources/playbook.html">Marketing Playbook</a>
+          <a href="contact.html">Contact</a>
+          <a href="book-demo.html">Book a Demo</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; [COPYRIGHT_YEAR] [PRODUCT_NAME]. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=13"></script>
+</body>
+</html>
