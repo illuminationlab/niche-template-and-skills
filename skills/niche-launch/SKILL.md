@@ -28,7 +28,7 @@ If any precondition fails: stop and report which one.
 
 ```bash
 source ~/.claude/env.local
-cd "/Users/ryangough/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>"
+cd "/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>"
 ```
 
 Read `variables.json` for `NICHE_CODE`, `PRODUCT_NAME`, `DOMAIN`, etc.
@@ -60,7 +60,7 @@ If the repo already exists: use `gh repo view <PRODUCT_NAME_PASCAL>` first; if o
 Source the helper:
 
 ```bash
-source /Users/ryangough/Desktop/repos/niche-sites/_website-template/scripts/coolify.sh
+source /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/scripts/coolify.sh
 ```
 
 (a) Check if a project already exists for this niche. Use `coolify_list_projects | jq` and grep for a name matching `<NICHE_CODE>-site` or `<PRODUCT_NAME>`. If yes, capture its UUID; if no, create:
@@ -217,8 +217,8 @@ Only after the user confirms the site loads.
 python3 <<EOF
 import json, pathlib
 
-fixture_path = pathlib.Path('/Users/ryangough/Desktop/repos/playwright-tests/fixtures/niches.json')
-vars_path = pathlib.Path('/Users/ryangough/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/variables.json')
+fixture_path = pathlib.Path('/Users/laurenwilliams/Desktop/repos/playwright-tests/fixtures/niches.json')
+vars_path = pathlib.Path('/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/variables.json')
 
 niches = json.loads(fixture_path.read_text())
 v = json.loads(vars_path.read_text())
@@ -251,7 +251,7 @@ EOF
 **(c) Smoke-run the Playwright suite against the new niche** to confirm the launch is fully landed:
 
 ```bash
-cd /Users/ryangough/Desktop/repos/playwright-tests
+cd /Users/laurenwilliams/Desktop/repos/playwright-tests
 npm run test:niche -- '<NICHE_DRIP_PREFIX>'
 ```
 
@@ -260,7 +260,7 @@ Expected: every shared test passes against the new domain. If any fail, the laun
 **(d) Commit the fixture change** (the playwright-tests repo is git-tracked):
 
 ```bash
-cd /Users/ryangough/Desktop/repos/playwright-tests
+cd /Users/laurenwilliams/Desktop/repos/playwright-tests
 git add fixtures/niches.json
 git commit -m "Extend test fixture for <PRODUCT_NAME> launch"
 git push 2>/dev/null || true   # only if user has set up a remote
@@ -277,7 +277,7 @@ Three sentences max: site URL, Coolify project/app UUIDs recorded in variables.j
 Any fix applied to a single niche site after launch must be audited across every other live niche. The helper script runs the audit in one command:
 
 ```bash
-bash /Users/ryangough/Desktop/repos/niche-sites/_website-template/scripts/audit-across-niches.sh '<grep_pattern>' '<glob>'
+bash /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/scripts/audit-across-niches.sh '<grep_pattern>' '<glob>'
 ```
 
 If matches are found in any other niche, fix and redeploy each affected niche AND the template in the same session. See playbook Section 11 for the full rule.

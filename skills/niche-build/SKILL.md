@@ -8,13 +8,13 @@ argument-hint: "[product-name]"
 
 # /niche-build
 
-Phase 2 of three: **research → build → launch**. Input: a niche repo at `/Users/ryangough/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/` containing `variables.json`, `content.md`, and two master brand images. Output: a complete, deployable static site in the same directory, ready for `/niche-launch`.
+Phase 2 of three: **research → build → launch**. Input: a niche repo at `/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/` containing `variables.json`, `content.md`, and two master brand images. Output: a complete, deployable static site in the same directory, ready for `/niche-launch`.
 
-The template lives at `/Users/ryangough/Desktop/repos/niche-sites/_website-template/`. The authoritative build rules live in `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` — **read that file in full before writing a single line of code.** The playbook overrides anything in this skill on any disagreement.
+The template lives at `/Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/`. The authoritative build rules live in `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` — **read that file in full before writing a single line of code.** The playbook overrides anything in this skill on any disagreement.
 
 ## Preconditions (verify all before any edit)
 
-1. Niche repo exists at `/Users/ryangough/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/`
+1. Niche repo exists at `/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/`
 2. `variables.json` exists in the niche repo with all Section 0 variables filled
 3. `content.md` exists in the niche repo with all 7 pages written
 4. Niche repo contains two master brand assets at known filenames:
@@ -324,7 +324,7 @@ Two sentences. What was built, DoD status, next step is `/niche-launch`.
 If a fix applied to this niche could plausibly exist in any other live niche, run:
 
 ```bash
-bash /Users/ryangough/Desktop/repos/niche-sites/_website-template/scripts/audit-across-niches.sh '<pattern>' '*.html'
+bash /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/scripts/audit-across-niches.sh '<pattern>' '*.html'
 ```
 
 If the script exits 1, fix the matched niches AND the template before this build is "done." See playbook Section 11 for the full rule.

@@ -10,7 +10,7 @@ argument-hint: "[niche-code] [product-name]"
 
 Phase 1 of three: **research → build → launch**. This skill produces the `content.md` that `/niche-build` applies to every page of the new niche site.
 
-The canonical template + prompts + registry live at `/Users/ryangough/Desktop/repos/niche-sites/_website-template/`. Read `_website-template/prompts/deep-research-prompt.md` and `_website-template/REGISTRY.md` before proceeding.
+The canonical template + prompts + registry live at `/Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/`. Read `_website-template/prompts/deep-research-prompt.md` and `_website-template/REGISTRY.md` before proceeding.
 
 ## Prerequisite (before this skill runs)
 
@@ -38,8 +38,8 @@ On accent color, the build skill will auto-derive `ACCENT_COLOR_RGB` (comma-sepa
 ### 1. Verify NICHE_CODE **and** DRIP_TAG_PREFIX are both free
 
 ```bash
-grep -nE "^\| $NICHE_CODE " /Users/ryangough/Desktop/repos/niche-sites/_website-template/REGISTRY.md || echo "CODE FREE"
-grep -nE "\| $DRIP_TAG_PREFIX " /Users/ryangough/Desktop/repos/niche-sites/_website-template/REGISTRY.md || echo "PREFIX FREE"
+grep -nE "^\| $NICHE_CODE " /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/REGISTRY.md || echo "CODE FREE"
+grep -nE "\| $DRIP_TAG_PREFIX " /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/REGISTRY.md || echo "PREFIX FREE"
 ```
 
 If EITHER identifier is already in any row (Live, Planned, or Retired), **stop** and ask the user for a different value. Do not proceed — GHL tag collisions and duplicate source_site values are silent and hard to untangle.
@@ -51,18 +51,18 @@ Edit `_website-template/REGISTRY.md`: add a row under **Planned / reserved** wit
 ### 3. Create the niche repo directory
 
 ```bash
-mkdir -p "/Users/ryangough/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/public/brand"
+mkdir -p "/Users/laurenwilliams/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/public/brand"
 ```
 
 Where `$PRODUCT_NAME_PASCAL` is the product name with spaces removed (e.g. `RafterElite`, `NeedleMoved`). This matches the existing sibling-folder convention in `/repos`.
 
 ### 4. Save a `variables.json` to the new niche repo
 
-Write `/Users/ryangough/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/variables.json` containing every variable collected in step 0 plus the shared defaults from `~/.claude/env.local` (LEAD_WEBHOOK, NEWSLETTER_WEBHOOK, CHATBOT_WIDGET_ID, etc.). `/niche-build` will read this file next phase — do not require the user to re-type variables.
+Write `/Users/laurenwilliams/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/variables.json` containing every variable collected in step 0 plus the shared defaults from `~/.claude/env.local` (LEAD_WEBHOOK, NEWSLETTER_WEBHOOK, CHATBOT_WIDGET_ID, etc.). `/niche-build` will read this file next phase — do not require the user to re-type variables.
 
 ### 5. Fill the deep-research prompt
 
-Read `_website-template/prompts/deep-research-prompt.md`. Substitute `[NICHE]`, `[NICHE_PLURAL]`, `[WEBSITE_NAME]` (= `PRODUCT_NAME`), `[WEBSITE_URL]` (= `https://$DOMAIN`). Save the filled prompt to `/Users/ryangough/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/research-brief.md`.
+Read `_website-template/prompts/deep-research-prompt.md`. Substitute `[NICHE]`, `[NICHE_PLURAL]`, `[WEBSITE_NAME]` (= `PRODUCT_NAME`), `[WEBSITE_URL]` (= `https://$DOMAIN`). Save the filled prompt to `/Users/laurenwilliams/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/research-brief.md`.
 
 ### 6. ⏸ HUMAN CHECKPOINT — confirm variables before research
 
@@ -72,7 +72,7 @@ Display a summary of the locked variables and the path to `research-brief.md`. W
 
 Spawn a general-purpose Agent with this prompt (inlined, self-contained):
 
-> Use `WebSearch` and `WebFetch` extensively to conduct deep research on the `[NICHE]` industry. Your goal: produce a complete, publish-ready markdown file matching the structure in `/Users/ryangough/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/research-brief.md`. Read that file in full first — it is your authoritative prompt. Do multiple rounds of search covering: (a) biggest pain points in `[NICHE]` businesses, (b) language/terminology used by practitioners on Reddit/forums/industry blogs, (c) top competitor CRM/marketing tools already used in this niche and their gaps, (d) common objections to switching software, (e) high-value SEO keywords. Then write all 7 pages (Overview, Features, Use Cases, Resources, Pricing, About, Contact) in full per the deliverable spec in the brief. Do NOT truncate. Do NOT include free-trial language. Do NOT invent statistics or company names. Testimonial stand-ins use first name + last initial + city only. Write the final markdown to `/Users/ryangough/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/content.md` — single file, complete. Return a 5-line summary only (the file is the deliverable).
+> Use `WebSearch` and `WebFetch` extensively to conduct deep research on the `[NICHE]` industry. Your goal: produce a complete, publish-ready markdown file matching the structure in `/Users/laurenwilliams/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/research-brief.md`. Read that file in full first — it is your authoritative prompt. Do multiple rounds of search covering: (a) biggest pain points in `[NICHE]` businesses, (b) language/terminology used by practitioners on Reddit/forums/industry blogs, (c) top competitor CRM/marketing tools already used in this niche and their gaps, (d) common objections to switching software, (e) high-value SEO keywords. Then write all 7 pages (Overview, Features, Use Cases, Resources, Pricing, About, Contact) in full per the deliverable spec in the brief. Do NOT truncate. Do NOT include free-trial language. Do NOT invent statistics or company names. Testimonial stand-ins use first name + last initial + city only. Write the final markdown to `/Users/laurenwilliams/Desktop/repos/niche-sites/$PRODUCT_NAME_PASCAL/content.md` — single file, complete. Return a 5-line summary only (the file is the deliverable).
 
 Run in foreground (you need the result to continue). Budget ~8–15 minutes of agent time.
 

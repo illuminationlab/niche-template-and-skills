@@ -51,7 +51,7 @@ Verify setup:
 
 ```bash
 # Should print the Coolify base URL and list servers + projects
-bash /Users/ryangough/Desktop/repos/niche-sites/_website-template/scripts/coolify.sh check
+bash /Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/scripts/coolify.sh check
 ```
 
 First-niche legal defaults: on the first build, `/niche-build` will ask for `IL_FORMATION_STATE`, `IL_GOVERNING_LAW`, and `IL_MAILING_ADDRESS` and write them back to `env.local`. Subsequent niches inherit them automatically.
