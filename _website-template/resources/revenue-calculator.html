@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Med Spa Revenue Calculator — Free Tool | [PRODUCT_NAME]</title>
-  <meta name="description" content="How much revenue is your med spa leaving on the table? Find out in 60 seconds. Estimate annual losses from missed calls and no-shows, and the recovery possible with automation.">
+  <title>[NICHE_NOUN_TITLE] Revenue Calculator — Free Tool | [PRODUCT_NAME]</title>
+  <meta name="description" content="How much revenue is your [NICHE_NOUN] leaving on the table? Find out in 60 seconds. Estimate annual losses from missed calls and no-shows, and the recovery possible with automation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/styles.css?v=13">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='[ACCENT_COLOR_URL]'/><text x='6' y='24' font-size='22' font-weight='bold' fill='%230B0B0B'>NM</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css?v=15">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2300B0B8'/><text x='6' y='24' font-size='22' font-weight='bold' fill='%230B0B0B'>NM</text></svg>">
+  <script>window.SITE_CONFIG = { source_site: "[NICHE_CODE]" };</script>
 </head>
 <body>
 
   <!-- Announcement Bar -->
   <div class="announcement-bar">
     <div class="container">
-      New: Voice AI outbound calls — lead to booked appointment in under 60 seconds &mdash; <a href="../book-demo.html">See it live</a>
+      $199 a month, <strong>forever</strong> &mdash; for the first 100 customers. &nbsp;<a href="../pricing.html">See pricing</a>
       <button class="announcement-close" aria-label="Close announcement" style="background:none;border:none;color:inherit;margin-left:16px;cursor:pointer;font-size:1.1rem;">&times;</button>
     </div>
   </div>
@@ -26,10 +27,7 @@
     <div class="header-inner">
       <div class="container">
         <a href="../index.html" class="logo">
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="36" rx="8" fill="[ACCENT_COLOR]"/>
-            <path d="M8 10v16h3V15.5L21 26h3V10h-3v10.5L11 10H8z" fill="#0B0B0B"/>
-          </svg>
+          <img src="../assets/logo-mark.png" alt="[PRODUCT_NAME]" width="34" height="34" style="display:block;">
           Needle<span>Moved</span>
         </a>
 
@@ -108,10 +106,10 @@
 
   <main>
     <!-- ===== HERO ===== -->
-    <section class="page-hero section--dark">
+    <section class="page-hero section--light">
       <div class="container text-center" style="max-width:820px;">
         <span class="section-eyebrow">Revenue Calculator</span>
-        <h1>How much revenue is your med spa<br><span class="highlight">leaving on the table?</span></h1>
+        <h1>How much revenue is your [NICHE_NOUN]<br><span class="highlight">leaving on the table?</span></h1>
         <p>Find out in 60 seconds. Enter four numbers, see your estimated annual revenue loss, and get a personalized report emailed to you instantly.</p>
       </div>
     </section>
@@ -122,8 +120,8 @@
         <div class="split" style="align-items:flex-start;gap:48px;">
           <div class="split-content reveal">
             <h2 style="font-size:1.5rem;margin-bottom:24px;">Your numbers</h2>
-            <form id="revcalc-form" data-webhook="[LEAD_WEBHOOK]" class="form-stack">
-              <input type="hidden" name="source_site" value="">
+            <form id="revcalc-form" data-webhook="https://illuminationlab.app.n8n.cloud/webhook/fc12357f-6e8b-4409-8182-8e44b967132d" class="form-stack">
+              <input type="hidden" name="source_site" value="[NICHE_CODE]">
               <input type="hidden" name="form_location" value="revenue-calculator">
               <input type="hidden" name="page_url" value="" data-autofill="page_url">
               <input type="hidden" name="referrer" value="" data-autofill="referrer">
@@ -178,7 +176,7 @@
           <div class="reveal reveal-delay-1" style="display:flex;flex-direction:column;gap:20px;position:sticky;top:120px;">
             <div class="card card-gradient" style="padding:40px 32px;">
               <div class="section-eyebrow" style="margin-bottom:12px;">Your estimated annual revenue loss</div>
-              <div id="revcalc-total" style="font-family:'Plus Jakarta Sans',sans-serif;font-size:3.5rem;font-weight:800;line-height:1;color:[ACCENT_COLOR];margin-bottom:8px;">$0</div>
+              <div id="revcalc-total" style="font-family:'Sora',sans-serif;font-size:3.5rem;font-weight:800;line-height:1;color:[ACCENT_COLOR_BRIGHT];margin-bottom:8px;">$0</div>
               <p style="opacity:0.75;font-size:0.95rem;margin:0;">Rough estimate based on your inputs, industry benchmarks, and a 260-day working year.</p>
             </div>
 
@@ -189,18 +187,18 @@
                   <div style="font-weight:600;">Missed-call loss</div>
                   <div style="font-size:0.85rem;opacity:0.65;">85% of voicemail callers never return</div>
                 </div>
-                <div id="revcalc-missed" style="font-size:1.25rem;font-weight:700;color:[ACCENT_COLOR];white-space:nowrap;">$0</div>
+                <div id="revcalc-missed" style="font-size:1.25rem;font-weight:700;color:[ACCENT_COLOR_BRIGHT];white-space:nowrap;">$0</div>
               </div>
               <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;">
                 <div style="flex:1;min-width:0;">
                   <div style="font-weight:600;">No-show loss</div>
                   <div style="font-size:0.85rem;opacity:0.65;">50% of no-shows are unrecoverable revenue</div>
                 </div>
-                <div id="revcalc-noshow" style="font-size:1.25rem;font-weight:700;color:[ACCENT_COLOR];white-space:nowrap;">$0</div>
+                <div id="revcalc-noshow" style="font-size:1.25rem;font-weight:700;color:[ACCENT_COLOR_BRIGHT];white-space:nowrap;">$0</div>
               </div>
             </div>
 
-            <div class="card" style="padding:24px;background:rgba(232,180,160,0.08);border-color:rgba(232,180,160,0.25);">
+            <div class="card" style="padding:24px;background:rgba(0,176,184,0.08);border-color:rgba(0,176,184,0.25);">
               <div style="font-size:0.9rem;opacity:0.9;line-height:1.55;"><strong>Recovery potential with [PRODUCT_NAME]:</strong> Med spas using Voice AI + automated no-show recovery typically recapture 60&ndash;80% of these losses within 90 days.</div>
             </div>
           </div>
@@ -249,8 +247,8 @@
           <h2>The assumptions behind your number.</h2>
         </div>
         <div class="card reveal" style="padding:36px;">
-          <p><strong>Missed calls.</strong> The average med spa ticket sits around $500 across injectables, laser, and facial services. When a prospective patient calls and hits voicemail, roughly <strong>85% never call back</strong> &mdash; they move on to the next practice in the search results. Multiply your daily missed-call volume by your average ticket and that 85% drop-off across 260 working days, and the number gets large fast.</p>
-          <p style="margin-top:16px;"><strong>No-shows.</strong> Industry benchmarks put med spa no-show rates between 10% and 25%. Even with deposits and late-cancel fees, roughly half of every no-show slot goes unfilled in time &mdash; meaning the chair stayed empty, the provider was paid, and the revenue vanished.</p>
+          <p><strong>Missed calls.</strong> The average [NICHE_NOUN] ticket sits around $500 across injectables, laser, and facial services. When a prospective patient calls and hits voicemail, roughly <strong>85% never call back</strong> &mdash; they move on to the next practice in the search results. Multiply your daily missed-call volume by your average ticket and that 85% drop-off across 260 working days, and the number gets large fast.</p>
+          <p style="margin-top:16px;"><strong>No-shows.</strong> Industry benchmarks put [NICHE_NOUN] no-show rates between 10% and 25%. Even with deposits and late-cancel fees, roughly half of every no-show slot goes unfilled in time &mdash; meaning the chair stayed empty, the provider was paid, and the revenue vanished.</p>
           <p style="margin-top:16px;"><strong>What the calculator does not yet include.</strong> Unresponded web leads, lapsed patients past their rebooking window, and review-driven local-search losses. In other words: the number you see here is a floor, not a ceiling.</p>
         </div>
       </div>
@@ -260,7 +258,7 @@
     <section class="cta-section section--dark">
       <div class="container text-center">
         <h2>See how much of this we can actually recover.</h2>
-        <p style="max-width:620px;margin:16px auto 32px;">Book a walkthrough. We'll plug your numbers into a live [PRODUCT_NAME] workspace and show you the workflows that close the gap.</p>
+        <p style="max-width:620px;margin:16px auto 32px;">Book a 20-minute walkthrough. We'll plug your numbers into a live [PRODUCT_NAME] workspace and show you the workflows that close the gap.</p>
         <div class="cta-buttons">
           <a href="../book-demo.html" class="btn btn-primary btn-lg">
             Book a Demo
@@ -278,23 +276,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="../index.html" class="logo">
-            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-              <rect width="36" height="36" rx="8" fill="[ACCENT_COLOR]"/>
-              <path d="M8 10v16h3V15.5L21 26h3V10h-3v10.5L11 10H8z" fill="#0B0B0B"/>
-            </svg>
+            <img src="../assets/logo-mark.png" alt="[PRODUCT_NAME]" width="34" height="34" style="display:block;">
             Needle<span>Moved</span>
           </a>
-          <p>The all-in-one growth platform built exclusively for med spas. More bookings. Faster responses. Loyal patients. One platform.</p></div>
+          <p>We help [NICHE_NOUN_PLURAL] fill their calendar &mdash; more leads, faster follow-up, loyal patients &mdash; using the tools you have plus our automation library and consulting.</p>
+          <p style="font-size:0.8rem;color:var(--color-text-muted);margin-top:4px;">A Chief Automation Experts company.</p></div>
 
         <div class="footer-col">
-          <h6>Platform</h6>
-          <a href="../features.html#voice-ai">Voice AI</a>
-          <a href="../features.html#conversation-ai">Conversation AI</a>
-          <a href="../features.html#crm">CRM & Pipelines</a>
-          <a href="../features.html#scheduling">Scheduling</a>
-          <a href="../features.html#automation">Automation</a>
-          <a href="../features.html#analytics">Analytics</a>
-          <a href="../features.html#membership">Membership</a>
+          <h6>Platform</h6><a href="../features.html#ai">After-Hours AI</a><a href="../features.html#automation">Follow-Up &amp; Nurture</a><a href="../features.html#crm">Pipelines &amp; CRM</a><a href="../features.html#scheduling">Scheduling</a><a href="../features.html#analytics">Analytics &amp; ROI</a><a href="../features.html#membership">Retention</a>
         </div>
 
         <div class="footer-col">
@@ -304,7 +293,7 @@
           <a href="../use-cases.html#multi-location">Multi-Location</a>
           <a href="../use-cases.html#practice-manager">Practice Manager</a>
           <a href="../use-cases.html#retention">Retention</a>
-          <a href="../use-cases.html#new-med-spa">New Med Spa</a>
+          <a href="../use-cases.html#new-med-spa">New [NICHE_NOUN_TITLE]</a>
         </div>
 
         <div class="footer-col">
@@ -372,6 +361,8 @@
       calc();
     })();
   </script>
-  <script src="../js/main.js?v=13"></script>
+  <script src="../js/main.js?v=14"></script>
+  <!-- GHL Conversation AI chat widget -->
+  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="685d4d4f63b8b7fec750e753"></script>
 </body>
 </html>

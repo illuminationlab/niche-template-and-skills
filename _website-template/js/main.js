@@ -183,12 +183,6 @@ function initForms() {
         const v = urlParams.get(k);
         if (v) data[k] = v;
       });
-      // Inject source_site from window.SITE_CONFIG (set per-site in <head>).
-      // The shared n8n workflow uses this to tag contacts by which niche site
-      // the lead came from. form_location comes from a hidden input per-form.
-      if (window.SITE_CONFIG && window.SITE_CONFIG.source_site) {
-        data.source_site = window.SITE_CONFIG.source_site;
-      }
       const webhook = form.dataset.webhook;
 
       try {

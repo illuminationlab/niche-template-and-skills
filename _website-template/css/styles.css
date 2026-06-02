@@ -1,28 +1,34 @@
 /* ============================================
-   [PRODUCT_NAME]
+   [PRODUCT_NAME] - [NICHE_NOUN_TITLE] Growth Platform
    Design System & Core Styles
    ============================================ */
 
 /* ---------- CSS Variables ---------- */
 :root {
-  --color-bg-primary: #0B0B0B;
-  --color-bg-secondary: #111111;
-  --color-bg-card: #161616;
-  --color-bg-card-hover: #1C1C1C;
-  --color-accent: [ACCENT_COLOR];
-  --color-accent-rgb: [ACCENT_COLOR_RGB];
+  /* Brand surfaces — light base (Clear & Confident) */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F2F6FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-card-hover: #F6F8F9;
+  --color-accent: [ACCENT_COLOR];          /* teal (text-safe on white) */
+  --color-accent-bright: [ACCENT_COLOR_BRIGHT];   /* teal base */
   --color-accent-light: [ACCENT_COLOR_LIGHT];
-  --color-accent-dark: [ACCENT_COLOR_DARK];
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: #A0A0A0;
-  --color-text-muted: #717171;
-  --color-border: #2A2A2A;
-  --color-border-light: #3A3A3A;
-  --color-success: #4CAF50;
-  --color-error: #FF5252;
+  --color-accent-dark: [ACCENT_COLOR_DEEP];
+  --color-text-primary: #0C1C29;    /* ink */
+  --color-text-secondary: #516570;  /* slate-600 */
+  --color-text-muted: #8A99A2;
+  --color-border: #DCE3E7;
+  --color-border-light: #CFD8DD;
+  --color-success: #1D9D6B;
+  --color-error: #D8503D;
 
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  /* Navy family (impact sections, headlines) */
+  --navy: #003058;
+  --navy-deep: #002445;
+  --navy-700: #003058;
+
+  --font-primary: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Sora', 'Manrope', sans-serif;
 
   --container-max: 1200px;
   --container-wide: 1400px;
@@ -35,9 +41,9 @@
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-card-hover: 0 8px 40px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 30px rgba(var(--color-accent-rgb), 0.2);
+  --shadow-card: 0 1px 3px rgba(0, 48, 88, 0.08), 0 4px 12px rgba(0, 48, 88, 0.06);
+  --shadow-card-hover: 0 18px 40px rgba(0, 48, 88, 0.14), 0 6px 14px rgba(0, 48, 88, 0.08);
+  --shadow-glow: 0 12px 30px rgba(0, 176, 184, 0.28);
 
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
@@ -104,6 +110,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
+  color: var(--navy);
 }
 
 h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
@@ -149,10 +156,20 @@ p {
 }
 
 .section--dark {
-  background: var(--color-bg-primary);
+  background: var(--navy);
+  color: #fff;
 }
 
 .section--darker {
+  background: var(--navy-deep);
+  color: #fff;
+}
+
+.section--light {
+  background: #fff;
+}
+
+.section--mist {
   background: var(--color-bg-secondary);
 }
 
@@ -192,8 +209,8 @@ p {
    the rest of the page. The header below it is also static. No fixed/floating
    overlay, so nothing can cover the nav on load. */
 .announcement-bar {
-  background: var(--color-accent);
-  color: var(--color-bg-primary);
+  background: var(--navy);
+  color: #fff;
   text-align: center;
   padding: 10px 24px;
   font-size: 0.875rem;
@@ -204,7 +221,7 @@ p {
 }
 
 .announcement-bar a {
-  color: var(--color-bg-primary);
+  color: var(--color-accent-light);
   text-decoration: underline;
   font-weight: 700;
 }
@@ -228,7 +245,7 @@ p {
 }
 
 .header-inner {
-  background: rgba(11, 11, 11, 0.92);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-border);
@@ -338,7 +355,7 @@ p {
 
 .dropdown-link:hover {
   color: var(--color-text-primary);
-  background: rgba(var(--color-accent-rgb), 0.08);
+  background: rgba(0,176,184, 0.08);
 }
 
 .dropdown-link .icon {
@@ -557,8 +574,8 @@ p {
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
-  background: rgba(var(--color-accent-rgb), 0.1);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: rgba(0,176,184, 0.1);
+  border: 1px solid rgba(0,176,184, 0.2);
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 500;
@@ -644,7 +661,7 @@ p {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0,176,184, 0.08) 0%, transparent 70%);
   right: -100px;
   top: 50%;
   transform: translateY(-50%);
@@ -766,7 +783,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(var(--color-accent-rgb), 0.1);
+  background: rgba(0,176,184, 0.1);
   border-radius: var(--radius-md);
   margin-bottom: 20px;
   color: var(--color-accent);
@@ -813,7 +830,7 @@ p {
   font-family: var(--font-display);
   font-size: 4rem;
   font-weight: 800;
-  color: rgba(var(--color-accent-rgb), 0.1);
+  color: rgba(0,176,184, 0.1);
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -960,7 +977,7 @@ p {
   font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 800;
-  color: rgba(var(--color-accent-rgb), 0.12);
+  color: rgba(0,176,184, 0.12);
   line-height: 1;
   display: block;
   margin-bottom: 16px;
@@ -1120,7 +1137,7 @@ p {
 
 .form-input:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.1);
+  box-shadow: 0 0 0 3px rgba(0,176,184, 0.1);
 }
 
 .form-input::placeholder {
@@ -1231,7 +1248,7 @@ select.form-input {
   transform: translate(-50%, -50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.06) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(0,176,184, 0.06) 0%, transparent 60%);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -1416,8 +1433,8 @@ select.form-input {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  background: rgba(var(--color-accent-rgb), 0.1);
-  border: 1px solid rgba(var(--color-accent-rgb), 0.2);
+  background: rgba(0,176,184, 0.1);
+  border: 1px solid rgba(0,176,184, 0.2);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 600;
@@ -1605,11 +1622,30 @@ select.form-input {
 .gap-4 { gap: 32px; }
 
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   POST-LAUNCH HARDENING FIXES (v2)
-   These address issues discovered on the first production build (EngineGuild).
-   They override earlier base rules. Do not delete — they are the defaults now.
-   ═══════════════════════════════════════════════════════════════════════════ */
+/* ─── HERO CENTERING FIX (homepage) ────────────────────────────────────────
+   Inline style on .hero-content sets text-align:center + margin:0 auto, so
+   the 920px container IS centered on screen — but .hero h1 had max-width
+   without margin auto, leaving the h1 block left-aligned inside the parent.
+   Same fix for .hero p, .hero-eyebrow, .hero-buttons. Block-level children
+   of a centered hero-content now actually center.
+   ──────────────────────────────────────────────────────────────────────── */
+.hero-content[style*="text-align:center"] > *,
+.hero-content[style*="text-align: center"] > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-content[style*="text-align:center"] .hero-buttons,
+.hero-content[style*="text-align: center"] .hero-buttons {
+  justify-content: center;
+}
+.hero h1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero p {
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* ─── FIX: header stacks above page content so the dropdown is clickable ────
    Without this, pages with z-indexed hero content (.hero-content z-index: 2)
@@ -1635,215 +1671,80 @@ select.form-input {
   padding-bottom: 12px !important;
 }
 
-/* ─── FIX: hero text centers block children, not just inline text ───────────
-   When .hero-content uses inline `text-align: center;` (or has the
-   .hero-content--center class), every direct child block needs margin auto
-   to actually sit in the middle of the container. text-align alone centers
-   inline text but leaves block-level children (h1, p with max-width, eyebrow)
-   aligned left inside the parent. This rule centers every direct child.
-   ──────────────────────────────────────────────────────────────────────── */
-.hero-content[style*="text-align:center"] > *,
-.hero-content[style*="text-align: center"] > *,
-.hero-content.hero-content--center > *,
-.hero .hero-content[style*="text-align"] > *,
-.page-hero .hero-content > * {
-  margin-left: auto;
-  margin-right: auto;
+/* =====================================================================
+   BRAND V2 OVERRIDES — Chief Automation Experts kit (navy + teal)
+   Light is the default surface. .section--dark / .section--darker are
+   NAVY impact sections; everything inside them flips to white text and
+   translucent cards. Keeps the (navy-heavy) inner pages fully legible.
+   ===================================================================== */
+
+/* Navy sections: text */
+.section--dark, .section--darker { color: #fff; }
+.section--dark :is(h1,h2,h3,h4,h5,h6),
+.section--darker :is(h1,h2,h3,h4,h5,h6) { color: #fff; }
+.section--dark p, .section--darker p { color: rgba(255,255,255,0.74); }
+.section--dark .section-eyebrow,
+.section--darker .section-eyebrow { color: var(--color-accent-light); }
+.section--dark .stat-number,
+.section--darker .stat-number { color: var(--color-accent-light); }
+.section--dark .stat-label,
+.section--darker .stat-label { color: rgba(255,255,255,0.7); }
+.section--dark .testimonial-quote,
+.section--darker .testimonial-quote { color: #fff; }
+.section--dark .marquee,
+.section--darker .marquee { border-color: rgba(255,255,255,0.12); }
+.section--dark .marquee-item,
+.section--darker .marquee-item { color: rgba(255,255,255,0.45); }
+.section--dark .faq-item,
+.section--darker .faq-item { border-color: rgba(255,255,255,0.12); }
+.section--dark .faq-question,
+.section--darker .faq-question { color: #fff; }
+.section--dark .checklist li,
+.section--darker .checklist li { color: rgba(255,255,255,0.8); border-color: rgba(255,255,255,0.06); }
+.section--dark .process-step h3,
+.section--darker .process-step h3 { color:#fff; }
+
+/* Navy sections: cards become translucent glass */
+.section--dark .card, .section--darker .card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
 }
-.hero-content[style*="text-align:center"] .hero-buttons,
-.hero-content[style*="text-align: center"] .hero-buttons,
-.hero-content.hero-content--center .hero-buttons,
-.page-hero .hero-content .hero-buttons {
-  justify-content: center;
+.section--dark .card.card-gradient, .section--darker .card.card-gradient {
+  background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+}
+.section--dark .card h3, .section--darker .card h3 { color:#fff; }
+.section--dark .card p, .section--darker .card p { color: rgba(255,255,255,0.72); }
+.section--dark .card-icon, .section--darker .card-icon {
+  background: rgba(0,176,184,0.16); color: var(--color-accent-light);
 }
 
-/* ─── FIX: step numbers (Step 1/2/3) center their content ──────────────────
-   .process-step was left-aligning the counter numeral + heading + paragraph.
-   The whole card needs text-align:center to align with the section-header
-   above it, which is already centered via .section-header.center.
-   ──────────────────────────────────────────────────────────────────────── */
-.process-step {
-  text-align: center;
+/* Page hero on light pages: ensure dark text */
+.page-hero h1 { color: var(--navy); }
+
+/* Hero eyebrow on light */
+.hero-eyebrow {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+  color: var(--color-accent-dark);
 }
-.process-step::after {
-  /* Connector line between steps: keep pointing right, but offset from center
-     so it doesn't cut through the centered heading text. */
-  top: 80px;
+.section--dark .hero-eyebrow, .section--darker .hero-eyebrow {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.18);
+  color: var(--color-accent-light);
 }
 
-/* ─── FIX: floating containers get a minimum breathing-room padding ─────────
-   Prevents text / data / numbers inside cards from visually touching the edge.
-   Every card-class container gets 32px minimum on ALL sides. Existing rules
-   with larger padding (e.g. .pricing-card 40px top/bottom) still win on
-   specificity because they come earlier in the stylesheet... which is why
-   these use !important to ensure the MINIMUM floor is always respected.
-   ──────────────────────────────────────────────────────────────────────── */
-.pricing-card,
-.feature-card,
-.process-step,
-.faq-item,
-.stat-card,
-.testimonial-card,
-.blog-card,
-.resource-card,
-.comparison-card,
-.use-case-card,
-.info-card,
-.callout,
-.tier-card,
-.value-card,
-.team-card,
-[class$="-card"],
-[class*="-card "] {
-  padding: 32px;
-}
-/* Pricing cards want more vertical breathing room */
-.pricing-card { padding: 40px 32px; }
-/* Feature cards are flagship containers */
-.feature-card { padding: 40px; }
-/* FAQ items read tighter to keep the accordion compact */
-.faq-item { padding: 24px; }
+/* Buttons: primary teal with white text, crisp */
+.btn-primary { background: var(--color-accent-bright); color: #fff; }
+.btn-primary:hover { background: var(--color-accent-dark); color: #fff; }
+.section--dark .btn-outline, .section--darker .btn-outline { color:#fff; border-color: rgba(255,255,255,0.28); }
+.section--dark .btn-outline:hover, .section--darker .btn-outline:hover { border-color: var(--color-accent-light); color: var(--color-accent-light); }
 
-/* ─── FIX: section-header centering keeps consistent regardless of container ─ */
-.section-header.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-.section-header.center > * {
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Logo wordmark: Needle ink, Moved teal (light header) */
+.logo { color: var(--navy); }
+.logo span { color: var(--color-accent); }
 
-/* ─── FIX: ensure text inside a .highlight on centered heroes wraps nicely ── */
-.hero h1 {
-  /* Keep the existing max-width of 700px; add margin auto so the block
-     itself centers when the parent is text-align:center. */
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero p {
-  margin-left: auto;
-  margin-right: auto;
-}
+/* Process step counters a touch more visible */
+.process-step::before { color: rgba(0,176,184,0.22); }
 
-/* ─── FIX: .text-center utility actually centers its block-level children ── */
-.text-center {
-  text-align: center;
-}
-.text-center > * {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   POST-LAUNCH HARDENING FIXES (v3)
-   Second pass: discovered the playbook's Section 6 rules (.split-visual reset,
-   .checklist rules, .stats-row centering) existed only in documentation, not
-   in the actual CSS. Also the process-steps 4-col grid left-aligned 3-step
-   content. Fixing all of it here so every niche inherits correctly.
-   ═══════════════════════════════════════════════════════════════════════════ */
-
-/* ─── FIX: .split-visual must NOT aspect-ratio-clip its contents ────────────
-   The old base rule set aspect-ratio: 4/3 + overflow: hidden, which was fine
-   when the split-visual held a single image placeholder but CLIPS every other
-   content type (chat cards, calculator, forms, calendar iframes). Words get
-   cut off at the bottom when the content is taller than 4:3.
-   ──────────────────────────────────────────────────────────────────────── */
-.split-visual {
-  aspect-ratio: auto !important;
-  background: none !important;
-  border: none !important;
-  overflow: visible !important;
-  display: block !important;
-}
-/* Opt-in class for sections that DO want the old 4:3 framed-image look */
-.split-visual-frame {
-  aspect-ratio: 4 / 3;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
-
-/* ─── FIX: chat bubble / transcript cards inside .split-visual ─────────────
-   The homepage "Conversation AI" demo card uses inline-styled div "bubbles".
-   Their padding was 14px 18px, which looked tight. Bump to 20px 24px and
-   ensure no text-cutoff even when the parent .split-visual shrinks at mobile.
-   ──────────────────────────────────────────────────────────────────────── */
-.split-visual .card > div[style*="border-radius:14px"],
-.split-visual .card > div[style*="border-radius: 14px"] {
-  padding: 20px 24px !important;
-  margin-bottom: 14px !important;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-/* ─── FIX: process-steps with 3 items no longer left-aligns in a 4-col grid ─
-   Old: grid-template-columns: repeat(4, 1fr) — with 3 step cards, leaves a
-   big empty 4th column, steps pin to the left. Switch to flex-wrap with
-   justify-content: center so any number of steps (2, 3, 4, 5) centers
-   horizontally without an empty trailing grid cell.
-   ──────────────────────────────────────────────────────────────────────── */
-.process-steps {
-  display: flex !important;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  grid-template-columns: none !important;
-}
-.process-step {
-  flex: 1 1 240px;
-  max-width: 300px;
-  text-align: center;
-}
-/* The ::after connector line was tuned to grid columns — kill it in flex
-   layout; the 32px gap provides clean visual separation on its own. */
-.process-step::after {
-  display: none !important;
-}
-
-/* ─── FIX: .checklist items flow inline content naturally ──────────────────
-   Playbook Section 6: .checklist li with display:flex turns every inline
-   child (<strong>, <span>, bare text) into a flex column. Use absolute-
-   positioned SVG instead so inline content wraps as normal prose.
-   ──────────────────────────────────────────────────────────────────────── */
-.checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.checklist li {
-  position: relative;
-  padding-left: 34px;
-  margin-bottom: 0.75rem;
-  line-height: 1.6;
-  display: block;
-}
-.checklist li svg {
-  position: absolute;
-  left: 0;
-  top: 3px;
-  width: 20px;
-  height: 20px;
-}
-
-/* ─── FIX: .stats-row centers its items at every breakpoint ────────────────
-   Without justify-content: center in the BASE rule (not just mobile), stat
-   items align flex-start on desktop.
-   ──────────────────────────────────────────────────────────────────────── */
-.stats-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  gap: 2rem;
-}
-
-/* ─── FIX: .split container flows properly around a relaxed .split-visual ── */
-.split {
-  align-items: stretch;
-}
+/* Footer stays light; links hover teal (already via --color-accent) */
+.footer { background: var(--color-bg-secondary); border-top-color: var(--color-border); }
