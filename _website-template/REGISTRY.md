@@ -9,14 +9,18 @@ Each niche has **two identifiers** that must be unique across every row ever cre
 
 Both identifiers must be unique — never reuse a retired code OR a retired drip prefix, because old GHL tags with that prefix may still exist.
 
+## House brand
+
+Default brand for **every** niche site: teal accent `#00b0b8` + navy secondary `#002445` (navy lives in the per-niche logo art, not a CSS token). All four live sites use it. A niche may override its accent only if the user explicitly asks; otherwise `ACCENT_COLOR` = `#00b0b8`. Derived teal ramp: rgb `0, 176, 184`, light `#4fd1d6`, dark `#007a80`.
+
 ## Live niches
 
 | NICHE_CODE | DRIP_TAG_PREFIX | PRODUCT_NAME | NICHE | Domain | Accent color | Status | Launched | Repo |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| nm | medspa | NeedleMoved | Med Spa | needlemoved.com | `#E8B4A0` | Live | 2025-xx-xx | `repos/niche-sites/NeedleMoved` |
-| rf | roofer | Rafter Elite | Roofing | rafterelite.com | `#c8960a` | Live (Next.js — to be ported) | 2025-xx-xx | `repos/niche-sites/RafterElite` |
-| eg | engine | EngineGuild | small engine repair | engineguild.com | `#C8102E` | Live | 2026-04-23 | `repos/niche-sites/EngineGuild` |
-| cc | pest | Call and Crawl | pest control | callandcrawl.com | `#6b3a1f` (+ `#2d6a2d`) | Live | 2026-04-26 | `repos/niche-sites/CallAndCrawl` |
+| nm | medspa | NeedleMoved | Med Spa | needlemoved.com | `#00b0b8` (+ `#002445`) | Live | 2025-xx-xx | `repos/niche-sites/NeedleMoved` |
+| rf | roofer | Rafter Elite | Roofing | rafterelite.com | `#00b0b8` (+ `#002445`) | Live (Next.js — to be ported) | 2025-xx-xx | `repos/niche-sites/RafterElite` |
+| eg | engine | EngineGuild | small engine repair | engineguild.com | `#00b0b8` (+ `#002445`) | Live | 2026-04-23 | `repos/niche-sites/EngineGuild` |
+| cc | pest | Call and Crawl | pest control | callandcrawl.com | `#00b0b8` (+ `#002445`) | Live | 2026-04-26 | `repos/niche-sites/CallAndCrawl` |
 
 ## Planned / reserved
 

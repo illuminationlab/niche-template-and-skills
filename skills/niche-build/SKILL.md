@@ -36,7 +36,7 @@ For legal pages on the first niche build: if `IL_FORMATION_STATE`, `IL_GOVERNING
 
 ### 2. ⏸ HUMAN CHECKPOINT — accent color locked
 
-Show the accent color + brand variables. Per the playbook, accent color must be final before any CSS is written. Confirm with user before proceeding. (If they want to change it later, the site needs a full rebuild of the color variable — the playbook is emphatic on this.)
+Show the accent color + brand variables. **House brand default = teal `#00b0b8` + navy `#002445`** — every live site uses it, so default to teal unless `variables.accent_color` says otherwise or the user asks for a per-niche color. Per the playbook, accent color must be final before any CSS is written. Confirm with user before proceeding. (If they want to change it later, the site needs a repo-wide color swap — not just the CSS var; see the Invariants note on inline accents.)
 
 ### 3. Resize brand assets
 
@@ -60,9 +60,9 @@ Also write `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` to `<niche-repo>/
 ### 5. Replace tokens across all HTML + CSS
 
 Derive accent-color variants from `variables.accent_color` before substituting:
-- `ACCENT_COLOR_RGB` = hex converted to comma-separated RGB (e.g. `#C8102E` → `200, 16, 46`)
-- `ACCENT_COLOR_LIGHT` = hex lightened ~25% (e.g. `#C8102E` → `#E53E4C`)
-- `ACCENT_COLOR_DARK` = hex darkened ~25% (e.g. `#C8102E` → `#9C0B22`)
+- `ACCENT_COLOR_RGB` = hex converted to comma-separated RGB (house teal `#00b0b8` → `0, 176, 184`)
+- `ACCENT_COLOR_LIGHT` = hex lightened ~25% (house teal `#00b0b8` → `#4fd1d6`)
+- `ACCENT_COLOR_DARK` = hex darkened ~25% (house teal `#00b0b8` → `#007a80`)
 
 Use Python's `colorsys` or a manual HSL shift. Report all three derived values to the user alongside the locked `ACCENT_COLOR` for sanity-check before proceeding.
 
@@ -73,11 +73,11 @@ In every `.html` and `.css` file in the niche repo, run these substitutions with
 [DOMAIN]                  → variables.domain
 [LEAD_WEBHOOK]            → env.LEAD_WEBHOOK
 [NEWSLETTER_WEBHOOK]      → env.NEWSLETTER_WEBHOOK
-[ACCENT_COLOR]            → variables.accent_color            (e.g. #C8102E)
-[ACCENT_COLOR_URL]        → variables.accent_color URL-encoded (e.g. %23C8102E)
-[ACCENT_COLOR_RGB]        → derived (e.g. 200, 16, 46)
-[ACCENT_COLOR_LIGHT]      → derived (e.g. #E53E4C)
-[ACCENT_COLOR_DARK]       → derived (e.g. #9C0B22)
+[ACCENT_COLOR]            → variables.accent_color            (house default #00b0b8)
+[ACCENT_COLOR_URL]        → variables.accent_color URL-encoded (e.g. %2300b0b8)
+[ACCENT_COLOR_RGB]        → derived (e.g. 0, 176, 184)
+[ACCENT_COLOR_LIGHT]      → derived (e.g. #4fd1d6)
+[ACCENT_COLOR_DARK]       → derived (e.g. #007a80)
 [COPYRIGHT_YEAR]          → current year (e.g. 2026)
 [TESTIMONIAL_NAME]        → fabricated full name appropriate for the niche (e.g. "Danielle Rivera")
 [TESTIMONIAL_INITIALS]    → first letter of first + last name (e.g. "DR"), MUST match the name avatar circle
@@ -334,7 +334,7 @@ If the script exits 1, fix the matched niches AND the template before this build
 - The playbook overrides this skill on any disagreement
 - Pricing tiers + Stripe links are LOCKED — never modify
 - No free-trial language makes it into the build, even if content.md suggested it (sanitize during apply)
-- Accent color is set once in CSS via `--color-accent: <hex>` and every usage is `var(--color-accent)` — never a second hardcoded hex
+- Accent color: `--color-accent: <hex>` is the primary token and most usage is `var(--color-accent)` — but inline SVG checkmark strokes and `rgba(<accent-rgb>, …)` pill/background fills across the HTML carry the accent hex/rgb literally (substituted from `[ACCENT_COLOR]`/`[ACCENT_COLOR_RGB]` at build). So a post-build color change is a repo-wide hex + rgb-triple replace across all `*.html` + `css/styles.css` (the light/dark/rgb variants too), NOT a single CSS-var edit. The teal rebrands (CallAndCrawl, EngineGuild) each touched ~9 files this way
 - Testimonials use the stand-in format — never real or fabricated business names
 - Legal pages are rewritten from scratch per the variables — do not carry NeedleMoved legal text
 

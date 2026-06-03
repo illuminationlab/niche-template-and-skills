@@ -29,9 +29,11 @@ Ask the user for any that weren't passed as arguments. Use `AskUserQuestion` wit
 | `NICHE_PLURAL` | `small engine repair shops` | Plural form (may equal NICHE for mass nouns). |
 | `DOMAIN` | `engineguild.com` | **Already purchased.** No protocol, no `www.` |
 | `TAGLINE` | `Stop juggling notebooks and voicemails. Run your whole shop from one place.` | One sentence. |
-| `ACCENT_COLOR` | `#C8102E` | Hex. **Must be locked before build — no mid-build color changes.** |
+| `ACCENT_COLOR` | `#00b0b8` | Hex. **House brand default = teal `#00b0b8` + navy `#002445`** (all live sites use it). Only deviate if the user explicitly asks for a per-niche color. **Must be locked before build — no mid-build color changes.** |
 
-On accent color, the build skill will auto-derive `ACCENT_COLOR_RGB` (comma-separated RGB triplet), `ACCENT_COLOR_LIGHT` (~25% lighter variant), and `ACCENT_COLOR_DARK` (~25% darker variant) from the hex. Confirm the derived light/dark variants with the user before build if the accent is unusual.
+House brand (default for every new niche unless the user overrides): teal accent `#00b0b8`, navy secondary `#002445`. The navy lives in the logo art (generated per-niche), not in a CSS token — the site CSS only needs the teal accent ramp. Derived teal ramp the build will produce: `ACCENT_COLOR_RGB` = `0, 176, 184`, `ACCENT_COLOR_LIGHT` = `#4fd1d6`, `ACCENT_COLOR_DARK` = `#007a80`.
+
+On accent color, the build skill auto-derives `ACCENT_COLOR_RGB` (comma-separated RGB triplet), `ACCENT_COLOR_LIGHT` (~25% lighter variant), and `ACCENT_COLOR_DARK` (~25% darker variant) from the hex. Confirm the derived light/dark variants with the user before build if the accent is unusual (i.e. not the teal default).
 
 ## Step-by-step
 
