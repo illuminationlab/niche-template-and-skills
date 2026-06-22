@@ -47,6 +47,8 @@ yourself — prefix it with `!` in Claude Code so it runs in-session.
 - `routines.md` — source-of-truth list of recurring routines, with restore instructions + n8n guardrails.
 - `backup-sync.sh` — commits + pushes the repo (run daily by the backup routine, or by hand).
 - `routine-health-check.sh` — daily live-site health check; posts to Google Chat (report-only, no n8n).
+- `routine-ghl-prompt-reminder.sh` — monthly Chat reminder to review GHL VoiceAI prompts.
+- `install-routines.sh` — (re)creates all three routines as macOS LaunchAgents (Step 5b).
 
 ## Note on secrets
 

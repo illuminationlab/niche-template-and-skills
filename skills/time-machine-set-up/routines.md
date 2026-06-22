@@ -48,19 +48,18 @@ pushes it to GitHub. The routine list and the routines themselves never drift ap
 - **Delivery:** Google Chat incoming webhook (`CHAT_WEBHOOK_URL` in `~/.claude/env.local`).
 - **n8n:** none — GET only, never touches `LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`.
 
-## 3. GHL VoiceAI prompt checker
+## 3. GHL VoiceAI prompt reminder (monthly)
 
-- **What:** Weekly review of the GoHighLevel prompts powering the VoiceAI agents. Read each
-  agent's current prompt, evaluate for efficiency/clarity/drift, and report suggested
-  tightenings. **Report only — does not edit live prompts.**
-- **Why:** Keep the VoiceAI agent prompts as lean and effective as possible over time.
-- **Schedule:** Weekly (e.g. Mon ~8:06am local).
+- **What:** Monthly nudge to manually review the GoHighLevel VoiceAI agent prompts for
+  efficiency. Posts a reminder to Google Chat. **Reminder only — does not read or edit prompts.**
+- **Why:** Keep the VoiceAI agent prompts lean and effective without depending on API access yet.
+- **Schedule:** Monthly, 1st of the month ~8:06am local.
 - **Delivery:** Google Chat incoming webhook (`CHAT_WEBHOOK_URL`).
-- **Action:** TODO — fill in how the GHL prompts are accessed (GHL API endpoint + which
-  agents/locations, or the GHL dashboard URL). Credentials go in `~/.claude/env.local` as
-  `GHL_API_KEY` + `GHL_LOCATION_ID`. Once that's known, the routine fetches each agent's prompt
-  and posts an efficiency report to Chat.
-- **n8n:** none — reads GHL only, reports back; no n8n, no live prompt writes.
+- **Action:** run `skills/time-machine-set-up/routine-ghl-prompt-reminder.sh`.
+- **Future upgrade:** once `GHL_API_KEY` + `GHL_LOCATION_ID` are set in `~/.claude/env.local`,
+  this can become an automated checker that fetches each agent's prompt and posts an efficiency
+  report instead of a plain reminder.
+- **n8n:** none — Chat reminder only; no GHL writes, no n8n.
 
 ---
 

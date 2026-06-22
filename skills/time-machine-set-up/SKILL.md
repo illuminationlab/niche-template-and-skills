@@ -144,15 +144,29 @@ ln -s ~/Desktop/repos/niche-template-and-skills/_website-template \
 
 ## Step 5b. Recreate the recurring routines
 
-Routines do NOT live on disk in a way that survives a wipe — rebuild them from the manifest.
-Read **`routines.md`** in this folder; it's the source-of-truth list. For each routine, use the
-`/schedule` skill to recreate it (durable, recurring) with the schedule + action described:
+Routines run as macOS **LaunchAgents** (they fire on schedule whether or not Claude is open).
+They don't survive a wipe — rebuild them from the repo with one command:
 
-1. **Daily backup to GitHub** — reviews the day's changes and pushes this repo (runs `backup-sync.sh`).
-2. **Live-site health check** — daily GET of every Live domain in `REGISTRY.md`; report failures.
-3. **GHL VoiceAI prompt checker** — weekly efficiency review of the GHL VoiceAI agent prompts (report only).
+```bash
+bash ~/Desktop/repos/niche-template-and-skills/skills/time-machine-set-up/install-routines.sh
+```
 
-**Guardrail:** every routine is read/report/backup only — **no routine may call n8n** (`LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`), trigger deploys, or change DNS/registry. After recreating, audit each one to confirm it doesn't connect to n8n. See `routines.md` for the full guardrails.
+That (re)creates and loads all three:
+
+1. **Daily backup to GitHub** (6:43pm) — `backup-sync.sh` commits + pushes this repo.
+2. **Live-site health check** (7:08am daily) — GET every Live domain in `REGISTRY.md`, post results to Chat.
+3. **GHL VoiceAI prompt reminder** (monthly, 1st @ 8:06am) — Chat reminder to review the prompts.
+
+Health-check + GHL reminder post to **Google Chat** via `CHAT_WEBHOOK_URL` (set in Step 6) — until
+that's set they only write to `~/.claude/logs/`. The full manifest (schedules, actions, upgrade
+notes) is in **`routines.md`**.
+
+**Guardrail:** every routine is read/report/backup only — **no routine calls n8n** (`LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`), triggers deploys, or changes DNS/registry. After recreating, confirm each one stays clean. See `routines.md` for the full guardrails.
+
+Verify they loaded:
+```bash
+launchctl list | grep illuminationlab   # expect backup-sync, health-check, ghl-prompt-reminder
+```
 
 ---
 
