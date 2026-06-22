@@ -39,11 +39,13 @@ pushes it to GitHub. The routine list and the routines themselves never drift ap
 ## 2. Live-site health check
 
 - **What:** GET each live niche domain (from `_website-template/REGISTRY.md`) and report any
-  that are down, returning non-200, or have an expiring/invalid TLS cert. Report only.
+  that are down, returning non-200, or have a TLS cert expiring within 14 days. Report only.
 - **Why:** Catch a dead deploy or DNS/cert problem before a client/visitor does.
-- **Schedule:** Daily (e.g. ~7:10am local).
-- **Action:** read the Live rows from `REGISTRY.md`, `curl -sS -o /dev/null -w '%{http_code}'`
-  each domain (plain GET, never a form POST), summarize failures.
+- **Schedule:** Daily, morning (e.g. ~7:08am local).
+- **Action:** run `skills/time-machine-set-up/routine-health-check.sh`. It parses the Live rows
+  from `REGISTRY.md`, GETs each domain, checks cert expiry, and posts a summary to
+  **Google Chat** via `CHAT_WEBHOOK_URL`.
+- **Delivery:** Google Chat incoming webhook (`CHAT_WEBHOOK_URL` in `~/.claude/env.local`).
 - **n8n:** none — GET only, never touches `LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`.
 
 ## 3. GHL VoiceAI prompt checker
@@ -52,10 +54,12 @@ pushes it to GitHub. The routine list and the routines themselves never drift ap
   agent's current prompt, evaluate for efficiency/clarity/drift, and report suggested
   tightenings. **Report only — does not edit live prompts.**
 - **Why:** Keep the VoiceAI agent prompts as lean and effective as possible over time.
-- **Schedule:** Weekly (e.g. Mon ~8:05am local).
+- **Schedule:** Weekly (e.g. Mon ~8:06am local).
+- **Delivery:** Google Chat incoming webhook (`CHAT_WEBHOOK_URL`).
 - **Action:** TODO — fill in how the GHL prompts are accessed (GHL API endpoint + which
-  agents/locations, or the GHL dashboard URL). Credentials/URLs go in `~/.claude/env.local`,
-  not here. Once that's known, the routine fetches each prompt and produces an efficiency report.
+  agents/locations, or the GHL dashboard URL). Credentials go in `~/.claude/env.local` as
+  `GHL_API_KEY` + `GHL_LOCATION_ID`. Once that's known, the routine fetches each agent's prompt
+  and posts an efficiency report to Chat.
 - **n8n:** none — reads GHL only, reports back; no n8n, no live prompt writes.
 
 ---

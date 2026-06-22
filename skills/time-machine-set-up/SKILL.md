@@ -176,6 +176,11 @@ export NEWSLETTER_WEBHOOK=""       # n8n newsletter-signup webhook URL
 export CHATBOT_WIDGET_ID=""        # site chatbot widget id
 export GHL_CALENDAR_URL=""         # GoHighLevel booking calendar URL
 
+# ── Routine delivery + GHL access (used by the routines) ──
+export CHAT_WEBHOOK_URL=""         # Google Chat incoming-webhook URL (routine reports post here)
+export GHL_API_KEY=""              # GoHighLevel API key/token (VoiceAI prompt-checker routine)
+export GHL_LOCATION_ID=""          # GHL location/sub-account id for the VoiceAI agents
+
 # ── Shared business / legal defaults ───────────────────
 export INTERNAL_EMAIL=""           # where lead notifications go
 export LEGAL_ENTITY=""             # legal company name on the sites

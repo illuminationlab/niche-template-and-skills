@@ -46,6 +46,7 @@ yourself — prefix it with `!` in Claude Code so it runs in-session.
 - `install-all-skills.sh` — symlinks every skill in this repo into `~/.claude/skills/` (Step 6).
 - `routines.md` — source-of-truth list of recurring routines, with restore instructions + n8n guardrails.
 - `backup-sync.sh` — commits + pushes the repo (run daily by the backup routine, or by hand).
+- `routine-health-check.sh` — daily live-site health check; posts to Google Chat (report-only, no n8n).
 
 ## Note on secrets
 
