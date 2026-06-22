@@ -18,9 +18,10 @@ The canonical backup of everything lives in this repo: **`illuminationlab/niche-
 
 - `gh auth status` shows an authenticated user
 - `git config --global user.name` and `user.email` are set
-- `~/.claude/skills/` contains: `niche-research`, `niche-build`, `niche-launch`, `medspa-newsletter`, `humanizer`, and `time-machine-set-up`
+- `~/.claude/skills/` contains: `niche-research`, `niche-build`, `niche-launch` (symlinked to the repo), `medspa-newsletter`, `humanizer`, and `time-machine-set-up` (symlinked)
 - `~/.claude/env.local` exists with every key in Step 6 populated
-- `~/Desktop/repos/niche-sites/_website-template/` exists
+- `~/Desktop/repos/niche-sites/_website-template/` exists (symlinked to the repo)
+- The routines in `routines.md` are recreated (daily backup, live-site health check, GHL VoiceAI prompt checker)
 - `/mcp` shows Gmail, Google Calendar, Google Drive, and Semrush connected
 
 ---
@@ -119,14 +120,39 @@ From the repo you just cloned:
 bash ~/Desktop/repos/niche-template-and-skills/skills/time-machine-set-up/install-all-skills.sh
 ```
 
-That copies `niche-research`, `niche-build`, `niche-launch`, and `time-machine-set-up` into `~/.claude/skills/`, then runs the medspa suite's own `sync.sh` (which installs `medspa-newsletter` + `humanizer` from the latest commit). Verify:
+This **symlinks** `niche-research`, `niche-build`, `niche-launch`, and `time-machine-set-up`
+into `~/.claude/skills/` — so editing an installed skill IS editing the repo working tree (no
+copy step, no drift, and the daily backup just commits + pushes). It then runs the medspa
+suite's own installer (`medspa-newsletter` + `humanizer` are copy-based on purpose — they
+git-pull fresh on every use). Verify:
 
 ```bash
-ls ~/.claude/skills
-# expect: humanizer  medspa-newsletter  niche-build  niche-launch  niche-research  time-machine-set-up
+ls -l ~/.claude/skills
+# niche-* and time-machine-set-up show as symlinks (->) into the repo;
+# humanizer + medspa-newsletter are real dirs.
 ```
 
-> **Known gotcha:** `niche-research`, `niche-build`, and `niche-launch` currently hardcode `/Users/laurenwilliams/Desktop/repos/niche-sites/...` paths. On a machine with a different home directory those paths won't resolve. Until the skills are made portable (use `$HOME`/`~`), either edit the path in the installed copy or work from Lauren's account. The medspa suite and this skill are already home-dir-agnostic.
+Also symlink the live website template to the repo so template edits are tracked too:
+
+```bash
+mkdir -p ~/Desktop/repos/niche-sites
+ln -s ~/Desktop/repos/niche-template-and-skills/_website-template \
+      ~/Desktop/repos/niche-sites/_website-template 2>/dev/null || true
+```
+
+> **Known gotcha:** `niche-research`, `niche-build`, and `niche-launch` currently hardcode `/Users/laurenwilliams/Desktop/repos/niche-sites/...` paths. On a machine with a different home directory those paths won't resolve. Until the skills are made portable (use `$HOME`/`~`), either edit the path in the (now symlinked, so repo-tracked) skill or work from Lauren's account. The medspa suite and this skill are already home-dir-agnostic.
+
+## Step 5b. Recreate the recurring routines
+
+Routines do NOT live on disk in a way that survives a wipe — rebuild them from the manifest.
+Read **`routines.md`** in this folder; it's the source-of-truth list. For each routine, use the
+`/schedule` skill to recreate it (durable, recurring) with the schedule + action described:
+
+1. **Daily backup to GitHub** — reviews the day's changes and pushes this repo (runs `backup-sync.sh`).
+2. **Live-site health check** — daily GET of every Live domain in `REGISTRY.md`; report failures.
+3. **GHL VoiceAI prompt checker** — weekly efficiency review of the GHL VoiceAI agent prompts (report only).
+
+**Guardrail:** every routine is read/report/backup only — **no routine may call n8n** (`LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`), trigger deploys, or change DNS/registry. After recreating, audit each one to confirm it doesn't connect to n8n. See `routines.md` for the full guardrails.
 
 ---
 
@@ -213,17 +239,24 @@ You're back to where you were. 🎉
 
 ---
 
-## Keeping this repo current
+## Keeping this repo current (continuous, never-ending backup)
 
-This repo is a **manual snapshot** (see the root `README.md`). When you change a skill or the template locally, sync it back:
+The point of this whole setup: **never be blindsided by losing a computer's files.** Because the
+live skills + template are **symlinked** into this repo (Step 5), every edit you make is already
+in the repo working tree — no manual copy step. Two layers keep GitHub current:
 
-```bash
-cd ~/Desktop/repos/niche-template-and-skills
-cp -R ~/.claude/skills/niche-research ./skills/niche-research
-cp -R ~/.claude/skills/niche-build    ./skills/niche-build
-cp -R ~/.claude/skills/niche-launch   ./skills/niche-launch
-cp -R ~/Desktop/repos/niche-sites/_website-template ./_website-template
-git add -A && git commit -m "Sync skills + template from local working state" && git push
-```
+1. **The daily backup routine** (Step 5b / `routines.md`) reviews the day's changes and runs
+   `backup-sync.sh` to commit + push. This is the safety net — at most a day of work is ever
+   un-pushed.
+2. **On-demand backup** — any time you finish something you don't want to risk, run:
+   ```bash
+   bash ~/.claude/skills/time-machine-set-up/backup-sync.sh
+   ```
+   It commits + pushes if anything changed, and is a quiet no-op if not.
 
-(The medspa suite syncs itself automatically via its `sync.sh` Step 0, so you don't snapshot it by hand.)
+`backup-sync.sh` also refreshes the copy-based medspa suite into the repo before pushing, so
+those two skills are backed up too (they self-sync forward via their own `sync.sh` on use).
+
+**When you add / change / remove anything** — a new skill, a template tweak, a new routine —
+it flows to GitHub automatically. The only thing to remember by hand: if you add or change a
+**routine**, update `routines.md` so the routine list itself stays backed up and restorable.
