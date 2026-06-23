@@ -94,7 +94,9 @@ real `.html` files.
 2. **`2 — Newsletter (GHL)`** (Doc) — in order: a top `[ HEADER IMAGE — insert at top, your ~1200×600
    banner ]` marker, the 3 subject options, preview text, body, CTA (real link), P.S., then an
    **IMAGE PLACEMENT SUMMARY** (which shape goes where), then the SOURCES block.
-3. **`3 — Image Brief`** (Doc) — three images with exact size + placement + content direction:
+3. **`3 — Image Brief`** (Doc) — three images with exact size + placement + content direction.
+   **All three are standard deliverables — the user always makes the Story too, so never label any
+   image "optional."**
    - In-feed graphic **1080×1350 (4:5)** → Facebook post + Article HTML hero.
    - Header banner **1200×600 (2:1)** → newsletter header + HTML email header.
    - Stat card / Story **1080×1920 (9:16)** → FB/IG Story (too tall for the email body).
