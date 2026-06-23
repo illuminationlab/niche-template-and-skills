@@ -18,7 +18,7 @@ The canonical backup of everything lives in this repo: **`illuminationlab/niche-
 
 - `gh auth status` shows an authenticated user
 - `git config --global user.name` and `user.email` are set
-- `~/.claude/skills/` contains: `niche-research`, `niche-build`, `niche-launch` (symlinked to the repo), `medspa-newsletter`, `humanizer`, and `time-machine-set-up` (symlinked)
+- `~/.claude/skills/` contains: `niche-research`, `niche-build`, `niche-launch`, `needlemoved-daily` (symlinked to the repo), `medspa-newsletter`, `humanizer`, and `time-machine-set-up` (symlinked)
 - `~/.claude/env.local` exists with every key in Step 6 populated
 - `~/Desktop/repos/niche-sites/_website-template/` exists (symlinked to the repo)
 - The routines in `routines.md` are recreated (daily backup, live-site health check, GHL VoiceAI prompt checker)
@@ -128,7 +128,7 @@ git-pull fresh on every use). Verify:
 
 ```bash
 ls -l ~/.claude/skills
-# niche-* and time-machine-set-up show as symlinks (->) into the repo;
+# niche-*, needlemoved-daily, and time-machine-set-up show as symlinks (->) into the repo;
 # humanizer + medspa-newsletter are real dirs.
 ```
 

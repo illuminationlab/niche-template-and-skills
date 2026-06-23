@@ -29,29 +29,29 @@ niche-template-and-skills/
 └── skills/                          ← Claude Code skills (Claude reads SKILL.md to know what to do)
     ├── niche-research/SKILL.md      ← Phase 1: research the niche, produce content.md
     ├── niche-build/SKILL.md         ← Phase 2: scaffold from _website-template, inject variables
-    └── niche-launch/SKILL.md        ← Phase 3: git init, push, Coolify deploy, DNS, registry update
+    ├── niche-launch/SKILL.md        ← Phase 3: git init, push, Coolify deploy, DNS, registry update
+    ├── medspa-newsletter-suite/     ← med-spa newsletter writer + humanizer (paired; self-syncing)
+    ├── needlemoved-daily/           ← "Make Day N — <topic>": builds the 5-file NeedleMoved content folder in Drive
+    └── time-machine-set-up/         ← new-machine disaster recovery + continuous backup + routines
 ```
 
 ## How the local copies stay in sync
 
-The "live" copies are at:
-- `~/Desktop/repos/niche-sites/_website-template/`
-- `~/.claude/skills/niche-research/`, `niche-build/`, `niche-launch/`
+Setup + sync is now automated by the **`time-machine-set-up`** skill (no more manual snapshotting):
 
-This repo is currently a **manual snapshot**. When you change the template or a skill locally:
+- `niche-research`, `niche-build`, `niche-launch`, `needlemoved-daily`, and `time-machine-set-up`
+  are **symlinked** from `~/.claude/skills/` into this repo checkout — so editing the live skill IS
+  editing the repo working tree (no copy step, no drift).
+- `medspa-newsletter` + `humanizer` are copy-based and **self-sync** from `origin/main` on each use
+  (via the suite's `sync.sh`).
+- A **daily backup routine** (`skills/time-machine-set-up/backup-sync.sh`, run by a LaunchAgent)
+  commits + pushes this repo automatically, so changes land on GitHub without anyone remembering.
 
-```bash
-# From this repo's checkout
-cp -R ~/Desktop/repos/niche-sites/_website-template ./_website-template
-cp -R ~/.claude/skills/niche-research ./skills/niche-research
-cp -R ~/.claude/skills/niche-build ./skills/niche-build
-cp -R ~/.claude/skills/niche-launch ./skills/niche-launch
-git add -A
-git commit -m "Sync template + skills from local working state"
-git push
-```
+**New machine / fresh terminal:** run the `time-machine-set-up` skill — it installs `gh`, sets the
+git identity, clones this repo, symlinks every skill into `~/.claude/skills/`, recreates the routines,
+and rebuilds `~/.claude/env.local`. See `skills/time-machine-set-up/SKILL.md`.
 
-A future enhancement would be to symlink the live locations to checkouts of this repo so changes are tracked automatically. For now, snapshot-on-significant-change is fine.
+To push an immediate snapshot by hand: `bash skills/time-machine-set-up/backup-sync.sh`.
 
 ## The niche-launch flow (TL;DR)
 

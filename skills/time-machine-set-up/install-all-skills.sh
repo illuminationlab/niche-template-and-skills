@@ -11,7 +11,7 @@ SKILLS_DIR="$HOME/.claude/skills"
 mkdir -p "$SKILLS_DIR"
 
 # Standalone skills: symlink ~/.claude/skills/<name> -> <repo>/skills/<name>
-for s in niche-research niche-build niche-launch time-machine-set-up; do
+for s in niche-research niche-build niche-launch needlemoved-daily time-machine-set-up; do
   src="$REPO_ROOT/skills/$s"
   dst="$SKILLS_DIR/$s"
   if [ -d "$src" ]; then

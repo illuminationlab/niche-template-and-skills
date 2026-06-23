@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>NeedleMoved — {{TITLE}}</title>
+<!--
+  SUBJECT LINE OPTIONS (set in GHL, not in the body):
+    1. {{SUBJECT_1}}
+    2. {{SUBJECT_2}}
+    3. {{SUBJECT_3}}
+  PREVIEW TEXT: {{PREVIEW}}
+  HEADER IMAGE: ~1200x600 banner. Replace the src below with the GHL-hosted URL (or the
+  Drive direct URL: https://drive.google.com/uc?export=view&id=FILE_ID) once the image is uploaded.
+-->
+<style>
+  body{margin:0;padding:0;background:#eef1f4;-webkit-text-size-adjust:100%;}
+  img{border:0;outline:none;text-decoration:none;display:block;}
+  .wrap{width:100%;background:#eef1f4;padding:24px 12px;}
+  .container{max-width:600px;margin:0 auto;background:#ffffff;border-radius:14px;overflow:hidden;
+    font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+  .px{padding-left:32px;padding-right:32px;}
+  .h1{font-size:24px;line-height:1.25;color:#002445;font-weight:800;margin:26px 0 10px;}
+  .p{font-size:16px;line-height:1.6;color:#33414f;margin:0 0 16px;}
+  .stat{color:#007a80;font-weight:700;}
+  .btn{display:inline-block;background:#00b0b8;color:#ffffff !important;text-decoration:none;
+    font-weight:700;font-size:16px;padding:15px 32px;border-radius:9px;}
+  .ps{font-size:15px;line-height:1.6;color:#5b6b7a;font-style:italic;margin:6px 0 0;}
+  .divider{height:1px;background:#e3e8ee;margin:28px 0 0;}
+  .footer{font-size:12px;line-height:1.6;color:#8a97a4;text-align:center;padding:22px 32px 30px;
+    font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+  @media (max-width:600px){.px{padding-left:20px;padding-right:20px;}.h1{font-size:21px;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="container">
+      <img src="{{HEADER_IMG_SRC}}" alt="{{TITLE}}" width="600" style="width:100%;height:auto;">
+      <div class="px">
+        <h1 class="h1">{{H1}}</h1>
+        {{BODY_PARAGRAPHS}}
+        <p style="text-align:center;margin:28px 0;">
+          <a class="btn" href="{{BOOKING_URL}}">{{CTA_TEXT}} &rarr;</a>
+        </p>
+        <p class="ps">{{PS}}</p>
+        <div class="divider"></div>
+      </div>
+      <div class="footer">
+        NeedleMoved &middot; Powered by Illumination Lab<br>
+        You're receiving this because you subscribed for med-spa growth tips.<br>
+        <a href="{{unsubscribe_url}}" style="color:#8a97a4;">Unsubscribe</a> &middot; [Your business address]
+      </div>
+    </div>
+  </div>
+</body>
+</html>

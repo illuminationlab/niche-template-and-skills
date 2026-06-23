@@ -102,17 +102,12 @@ If the humanizer flattened the punch, restore the device and note it.
 - Then, separately below the issue, print a **"Sources (for your reference — not part of the newsletter)"** block listing each stat and its source for the user to decide on.
 - Use the real booking link (`https://api.chiefautomationexperts.com/widget/booking/McMT8bQnMFU8gw2dk8cY`, = `GHL_CALENDAR_URL`) in the CTA. Keep any other unknowns as obvious placeholders.
 
-## Daily NeedleMoved folder build (standard outputs)
-When building a day's content into the NeedleMoved Drive folder (`YYYY-MM-DD — Day N — Title`),
-produce ALL of these, complete in one shot (link + image markers already baked in — never leave
-`{{BOOKING_LINK}}` and never require a re-create/cleanup pass):
-1. **Facebook Post** (Google Doc) — the article copy.
-2. **Newsletter (GHL)** (Google Doc) — subjects, preview, body, CTA, P.S., with image-placement markers.
-3. **Image Brief** (Google Doc) — each image with exact size + placement.
-4. **Newsletter (HTML email)** — email-safe HTML, inline CSS, brand colors (teal #00b0b8 / navy #002445),
-   header-image slot, booking-link CTA button. Create with `text/html` + `disableConversionToGoogleType:true`.
-5. **Article (HTML web)** — styled web-article version of the post, same brand CSS.
-Brand palette and the real booking link (`GHL_CALENDAR_URL`) are required in both HTML files.
+## Daily NeedleMoved folder build
+This writer is the *copy engine* for NeedleMoved's daily content, but the full daily build (creating
+the dated Drive folder and the 5 output files — FB post, newsletter, image brief, HTML email, HTML
+article) is orchestrated by the **`needlemoved-daily`** skill, which calls this writer first. To
+produce a day's content, use `needlemoved-daily` ("Make Day N — <topic>"); it handles packaging,
+Drive, brand HTML templates, the booking link, and image placement.
 
 ## Guardrails
 - **Truth only.** Every statistic must come from the user's input or `reference/facts.md` with its
