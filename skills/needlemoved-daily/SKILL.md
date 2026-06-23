@@ -79,7 +79,7 @@ branding folder). Use that folder's id as the parent for the day folder.
 
 ## Step 3 — Create the dated day folder
 
-Title format: **`YYYY-MM-DD — Day N — Title`** (date = today, from the session date).
+Title format: **`Day N — Title`** (no date — just the day number and topic title).
 ```
 create_file: mimeType application/vnd.google-apps.folder, parentId = <NeedleMoved id>
 ```

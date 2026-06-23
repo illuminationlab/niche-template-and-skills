@@ -9,7 +9,7 @@ process after a `git pull`.
 Trigger: **"Make Day N — <topic>"**
 
 1. Writes the copy via the `medspa-newsletter` skill (writer → humanizer).
-2. Creates a folder `YYYY-MM-DD — Day N — Title` in the *Illumination Lab, LLC* shared drive →
+2. Creates a folder `Day N — Title` in the *Illumination Lab, LLC* shared drive →
    **NeedleMoved**.
 3. Drops in **5 files**, complete and on-brand (real booking link baked in):
    1. `1 — Facebook Post` (Doc)
