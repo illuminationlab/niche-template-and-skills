@@ -54,7 +54,7 @@ Produce, in this order:
 1. **Subject line — 3 options** (one curiosity, one benefit, one plain/personal). Keep under ~55 characters.
 2. **Preview/preheader text** — one line (~50–90 chars) that extends the subject, never repeats it.
 3. **Body — ~150–220 words**, structured: hook → relatable scene + the fact (with specifics) → the cost of ignoring it → the fix as a system (GHL, named lightly) → one CTA.
-4. **CTA** — one ask only. Default: book a call. Use a placeholder `{{BOOKING_LINK}}` unless the user gives a real link.
+4. **CTA** — one ask only. Default: book a call. Use the real Illumination Lab booking link `https://api.chiefautomationexperts.com/widget/booking/McMT8bQnMFU8gw2dk8cY` (also stored in `~/.claude/env.local` as `GHL_CALENDAR_URL`) unless the user gives a different one. Only fall back to the `{{BOOKING_LINK}}` placeholder if no link is known.
 5. **P.S.** — Halbert-style: restate the core benefit or add a deadline/curiosity nudge.
 6. **Sources — given to the user, NOT placed in the newsletter.** Do NOT embed any source line or "(Source: …)" inside the newsletter copy. Instead, after the issue, add a separate block titled **"Sources (for your reference — not part of the newsletter)"** listing every stat used and its real source, so the user decides whether to add attribution in the final product. **Never invent a source;** if a stat has none, say so.
 
@@ -100,7 +100,7 @@ If the humanizer flattened the punch, restore the device and note it.
   using a clear filename, plus a combined master doc if requested.
 - Show the 3 subject-line options, preview text, body, CTA, and P.S. The newsletter copy itself contains **no source line**.
 - Then, separately below the issue, print a **"Sources (for your reference — not part of the newsletter)"** block listing each stat and its source for the user to decide on.
-- Keep `{{BOOKING_LINK}}` and any other unknowns as obvious placeholders.
+- Use the real booking link (`https://api.chiefautomationexperts.com/widget/booking/McMT8bQnMFU8gw2dk8cY`, = `GHL_CALENDAR_URL`) in the CTA. Keep any other unknowns as obvious placeholders.
 
 ## Guardrails
 - **Truth only.** Every statistic must come from the user's input or `reference/facts.md` with its

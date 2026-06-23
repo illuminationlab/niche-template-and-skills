@@ -50,7 +50,7 @@ one issue: **open like Ogilvy, pull through like Sugarman, close like Halbert.**
    competitor winning the call).
 6. **The fix as a system** (Halbert, light touch): the agency builds the machine in GHL that
    handles this automatically. Name the outcome, not a feature list.
-7. **CTA** (Halbert): one ask. Default — "Reply 'CALENDAR' or grab a time: {{BOOKING_LINK}}."
+7. **CTA** (Halbert): one ask. Default — "Reply 'CALENDAR' or grab a time: https://api.chiefautomationexperts.com/widget/booking/McMT8bQnMFU8gw2dk8cY" (the real IL booking link, = `GHL_CALENDAR_URL`).
 8. **P.S.** (Halbert): reinforce the benefit, add a nudge, or tease the next issue.
 9. **Sources** (if a stat is used): do NOT put them in the newsletter. List them in a separate "Sources (for your reference — not part of the newsletter)" block beneath the issue, for the user to decide on. Never invented.
 
@@ -82,7 +82,7 @@ Body target: **~150–220 words.**
 - "That's not a missed call. That's a $400 facial that walked next door — and told three friends."
 
 **CTA + P.S. (Halbert):**
-- "Want me to show you the exact setup that catches those after-hours bookings? Grab 15 minutes: {{BOOKING_LINK}}"
+- "Want me to show you the exact setup that catches those after-hours bookings? Grab 15 minutes: https://api.chiefautomationexperts.com/widget/booking/McMT8bQnMFU8gw2dk8cY"
 - "P.S. The spa down the street already answers at 9pm. It's automated. Yours can be too — by next week."
 
 ---
