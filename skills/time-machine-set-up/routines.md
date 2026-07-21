@@ -36,17 +36,22 @@ pushes it to GitHub. The routine list and the routines themselves never drift ap
   already current — this just commits + pushes.
 - **n8n:** none. Pure git.
 
-## 2. Live-site health check
+## 2. Live-site health check + git/redeploy check
 
-- **What:** GET each live niche domain (from `_website-template/REGISTRY.md`) and report any
-  that are down, returning non-200, or have a TLS cert expiring within 14 days. Report only.
-- **Why:** Catch a dead deploy or DNS/cert problem before a client/visitor does.
+- **What:** Two things in one morning message. (a) GET each live niche domain (from
+  `_website-template/REGISTRY.md`) and report any that are down, returning non-200, or have a
+  TLS cert expiring within 14 days. (b) Scan every repo in the `illuminationlab` GitHub org for
+  commits pushed in the last 24h and, for any found, remind that a **manual Coolify redeploy** is
+  needed (the auto-deploy webhook is broken). Report only.
+- **Why:** Catch a dead deploy or DNS/cert problem before a client/visitor does — and never miss
+  a day's work sitting un-deployed. Runs daily incl. weekends/holidays so ad-hoc work is covered.
 - **Schedule:** Daily, morning (e.g. ~7:08am local).
 - **Action:** run `skills/time-machine-set-up/routine-health-check.sh`. It parses the Live rows
-  from `REGISTRY.md`, GETs each domain, checks cert expiry, and posts a summary to
-  **Google Chat** via `CHAT_WEBHOOK_URL`.
+  from `REGISTRY.md`, GETs each domain, checks cert expiry, then runs a read-only `gh` scan of the
+  org's repos for 24h commits, and posts one combined summary to **Google Chat** via `CHAT_WEBHOOK_URL`.
 - **Delivery:** Google Chat incoming webhook (`CHAT_WEBHOOK_URL` in `~/.claude/env.local`).
-- **n8n:** none — GET only, never touches `LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`.
+- **n8n:** none — GET only, never touches `LEAD_WEBHOOK`/`NEWSLETTER_WEBHOOK`. The git check is
+  read-only (`gh repo list` + read commits); it never pushes, deploys, or redeploys.
 
 ## 3. GHL VoiceAI prompt reminder (monthly)
 
