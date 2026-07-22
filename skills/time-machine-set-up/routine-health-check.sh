@@ -70,10 +70,16 @@ done
 if [ -n "${GH:-}" ]; then
   since=$(date -u -v-24H +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u -d '24 hours ago' +%Y-%m-%dT%H:%M:%SZ 2>/dev/null)
   repos=$("$GH" repo list illuminationlab --limit 200 --json nameWithOwner -q '.[].nameWithOwner' 2>/dev/null)
+  # Repos that are NOT deployed on Coolify — commits here never need a redeploy, so
+  # they're skipped in the nag below (space-padded list; add tooling/source-only repos).
+  # niche-template-and-skills is source/tooling (template + skills + routines), and the
+  # daily backup-sync commits to it, so without this it would false-flag every day.
+  not_deployed=" illuminationlab/niche-template-and-skills "
   if [ -n "$repos" ]; then
     pushed=""
     while IFS= read -r r; do
       [ -z "$r" ] && continue
+      case "$not_deployed" in *" $r "*) continue ;; esac
       # On HTTP errors (e.g. 409 "empty repository") gh ignores -q and dumps the raw
       # error JSON + exits non-zero -> the `|| n=0` catches that so a status code like
       # 409 can never be misread as a commit count. On success -q returns the count.
