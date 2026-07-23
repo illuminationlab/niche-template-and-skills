@@ -21,6 +21,7 @@ Default brand for **every** niche site: teal accent `#00b0b8` + navy secondary `
 | rf | roofer | Rafter Elite | Roofing | rafterelite.com | `#00b0b8` (+ `#002445`) | Live (Next.js — to be ported) | 2025-xx-xx | `repos/niche-sites/RafterElite` |
 | eg | engine | EngineGuild | small engine repair | engineguild.com | `#00b0b8` (+ `#002445`) | Live | 2026-04-23 | `repos/niche-sites/EngineGuild` |
 | cc | pest | Call and Crawl | pest control | callandcrawl.com | `#00b0b8` (+ `#002445`) | Live | 2026-04-26 | `repos/niche-sites/CallAndCrawl` |
+| wb | electrician | WattsBooked | electrical contracting | wattsbooked.com | `#00b0b8` (+ `#002445`) | Live | 2026-07-23 | `repos/niche-sites/WattsBooked` |
 
 ## Planned / reserved
 
