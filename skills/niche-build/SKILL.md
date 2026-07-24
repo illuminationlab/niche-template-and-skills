@@ -137,13 +137,16 @@ For **every** HTML file in the niche repo (including `privacy.html` and `terms.h
     <script>window.SITE_CONFIG = { source_site: "<NICHE_CODE>" };</script>
     ```
 
-2. Inside `<body>` (near the closing `</body>`, after any page-level scripts but before `</body>`), insert the chatbot widget snippet. Pull the widget ID from `env.CHATBOT_WIDGET_ID`:
+2. Inside `<body>` (near the closing `</body>`, after any page-level scripts but before `</body>`), insert the chatbot widget as a **deferred loader** (not an eager `<script src>`). Pull the widget ID from `env.CHATBOT_WIDGET_ID`:
 
     ```html
-    <script src="https://widgets.leadconnectorhq.com/loader.js"
-            data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-            data-widget-id="<CHATBOT_WIDGET_ID>"></script>
+    <script>
+    /* Lazy-load the chat widget: never covers the hero on first paint (mobile). */
+    (function(){var done=false;function go(){if(done)return;done=true;var s=document.createElement("script");s.src="https://widgets.leadconnectorhq.com/loader.js";s.setAttribute("data-resources-url","https://widgets.leadconnectorhq.com/chat-widget/loader.js");s.setAttribute("data-widget-id","<CHATBOT_WIDGET_ID>");document.body.appendChild(s);evs.forEach(function(e){window.removeEventListener(e,go)});}var evs=["scroll","touchstart","pointerdown","keydown"];evs.forEach(function(e){window.addEventListener(e,go,{passive:true});});setTimeout(go,6000);})();
+    </script>
     ```
+
+    **Why deferred, not eager:** the LeadConnector widget auto-opens a greeting bubble on load. Loaded eagerly, that bubble covers the hero copy on mobile (a real above-the-fold bug we shipped once). This loader injects the widget only on first user interaction (scroll/touch/pointer/key) or after 6s, so the hero is always clean on first paint. **Complementary fix:** also turn OFF the auto-greeting in the GHL widget settings — that widget is shared across every niche site, so disabling it there fixes all sites at once.
 
 The chatbot renders on legal pages too — there's no compliance reason to exclude them, and users on privacy/terms are exactly the ones most likely to have support questions.
 
@@ -280,6 +283,23 @@ done
 grep -c "header stacks above page content" css/styles.css >/dev/null && \
   echo "  ✓ dropdown z-index fix present in styles.css" || \
   echo "  MISSING: dropdown z-index fix in css/styles.css — Resources menu will be unclickable"
+
+# (a6) MOBILE: header CTA pill must be hidden once the hamburger appears. When
+# the nav collapses (@media max-width:1024px) the long ".header-cta" pill
+# ("First 270: $99/mo Forever") stays in the bar and COLLIDES with the logo on
+# phones unless explicitly hidden. The template's 1024px breakpoint ships with
+# `.header-cta { display: none; }`. If missing, the navbar is broken on mobile.
+grep -A8 "@media (max-width: 1024px)" css/styles.css | grep -q "header-cta { display: none" && \
+  echo "  ✓ mobile: header CTA hidden at <=1024px" || \
+  echo "  MISSING: .header-cta{display:none} in the 1024px breakpoint — nav CTA collides with logo on mobile"
+
+# (a7) MOBILE: chat widget must be LAZY-loaded, not eager. An eager
+# <script src=...loader.js> lets the widget auto-greeting cover the hero on
+# load (mobile above-the-fold bug). Every widget page must use the deferred
+# loader (see Section 6). Flag any remaining eager tag.
+eager=$(grep -rl 'loader.js" data-resources' --include="*.html" . | wc -l | tr -d ' ')
+[ "$eager" = "0" ] && echo "  ✓ mobile: chat widget lazy-loaded on all pages" || \
+  echo "  MISSING: $eager page(s) still load the chat widget eagerly — hero gets covered on mobile"
 
 # (b) No free-trial language
 grep -rniE "free trial|try .*free|start free|14[- ]day free" . --include="*.html" \

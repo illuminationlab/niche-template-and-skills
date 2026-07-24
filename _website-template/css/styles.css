@@ -1541,6 +1541,12 @@ select.form-input {
 @media (max-width: 1024px) {
   .nav-main { display: none; }
   .mobile-toggle { display: flex; }
+  /* Hide the long header CTA pill once the hamburger appears — otherwise it
+     collides with the logo on phones. Mobile menu + announcement bar + hero
+     CTA cover the conversion path. */
+  .header-cta { display: none; }
+  .header .container { gap: 12px; }
+  .logo { min-width: 0; }
 
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .split { grid-template-columns: 1fr; gap: 40px; }
