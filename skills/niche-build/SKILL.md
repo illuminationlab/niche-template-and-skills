@@ -49,6 +49,7 @@ Copy the following from `_website-template/` into the niche repo. Preserve `cont
 - All `*.html` files at root
 - `css/` and `js/` directories
 - `resources/` directory
+- **`robots.txt`, `sitemap.xml`, `llms.txt`** — the technical-SEO files (they carry `[DOMAIN]` tokens; see Step 5 for substituting them)
 - **`.gitignore`** — excludes meta artifacts from ever being committed/shipped
 
 Also write `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` to `<niche-repo>/NICHE-BUILD-PLAYBOOK.md` at the root for traceability — it stays in the workspace but the `.gitignore` keeps it out of git.
@@ -66,7 +67,7 @@ Derive accent-color variants from `variables.accent_color` before substituting:
 
 Use Python's `colorsys` or a manual HSL shift. Report all three derived values to the user alongside the locked `ACCENT_COLOR` for sanity-check before proceeding.
 
-In every `.html` and `.css` file in the niche repo, run these substitutions with the values loaded in step 1:
+In every `.html`, `.css`, **`.txt` and `.xml`** file in the niche repo, run these substitutions with the values loaded in step 1. **The `.txt`/`.xml` inclusion is essential** — `robots.txt`, `sitemap.xml`, and `llms.txt` carry `[DOMAIN]` (and `llms.txt` carries `[PRODUCT_NAME]`/`[NICHE_*]`) tokens; if you only substitute `.html`/`.css`, those SEO files ship with raw `[DOMAIN]` and break.
 
 ```
 [PRODUCT_NAME]            → variables.product_name
@@ -86,6 +87,8 @@ In every `.html` and `.css` file in the niche repo, run these substitutions with
 [TESTIMONIAL_CITY]        → city + state matching a real cluster for the niche (e.g. "Scottsdale, AZ" for med spa)
 ```
 
+Note the two SEO tokens `[SEO_TITLE]` and `[SEO_DESC]` in every page's OpenGraph/Twitter tags (and `[SEO_DESC]` in the homepage JSON-LD). **Do NOT fill these here** — they get set in Step 9 to exactly match each page's real `<title>` and `<meta description>` from `content.md`. The bracket sweep below will flag them if Step 9 misses any.
+
 Also: set the default `CONTACT_EMAIL` to `info@<DOMAIN>` (e.g. `info@engineguild.com`). The `info@` alias is always created at domain purchase. Only override if the user explicitly specifies a different customer-facing email.
 
 **Fabricated testimonial guidance:** generate a believable name + business + city for the niche. The testimonial quote in the template already mentions the product replacing prior tools and improving conversion — keep that, just personalize the author. Pick a city that's a real industry cluster (med spas → Scottsdale/Miami/Beverly Hills; roofing → Dallas/Tampa; small engine repair → rural Midwest towns; pest control → Phoenix/Houston). NEVER ship `[TESTIMONIAL_*]`, `[Placeholder ...]`, `[Logo N]`, `[Client Name]`, or any other unreplaced bracket. NEVER ship a logo strip ("Trusted by X across the country" + [Logo 1][Logo 2]...) — fake logos look amateur and real logos require permissions you don't have.
@@ -93,7 +96,7 @@ Also: set the default `CONTACT_EMAIL` to `info@<DOMAIN>` (e.g. `info@engineguild
 After substitution, grep for any remaining `[BRACKET]` tokens in `.html`/`.css`:
 
 ```bash
-grep -rn "\[[A-Z_]\+\]" <niche-repo> --include="*.html" --include="*.css"
+grep -rn "\[[A-Z_]\+\]" <niche-repo> --include="*.html" --include="*.css" --include="*.txt" --include="*.xml"
 ```
 
 If any remain, stop and report them. Do not proceed.
@@ -215,6 +218,7 @@ Read `<niche-repo>/content.md`. Map each of the 7 page sections to the correspon
 For each page:
 - Replace the hero copy (headline, subheadline, CTAs) with content.md copy
 - Replace the `<title>` and `<meta name="description">` with the SEO block from content.md
+- **SEO sync (required):** on the same page, set `[SEO_TITLE]` (the `og:title` + `twitter:title`) to the exact `<title>` text you just wrote, and `[SEO_DESC]` (the `og:description` + `twitter:description`, and the homepage JSON-LD `description`) to the exact `<meta description>` text. These must match the page's real title/description — social shares and AI answers pull from them. Leftover `[SEO_TITLE]`/`[SEO_DESC]` fail the bracket sweep in Step 12.
 - Replace body sections, preserving the template's section skeleton (hero, features grid, FAQ accordion, etc. all stay — only the text content swaps)
 - Keep playbook CSS classes intact — do not rewrite markup structure, only text nodes
 - For testimonials: use content.md's stand-ins (first-name + last-initial + city) — do NOT leave NeedleMoved's names
@@ -300,6 +304,65 @@ grep -A8 "@media (max-width: 1024px)" css/styles.css | grep -q "header-cta { dis
 eager=$(grep -rl 'loader.js" data-resources' --include="*.html" . | wc -l | tr -d ' ')
 [ "$eager" = "0" ] && echo "  ✓ mobile: chat widget lazy-loaded on all pages" || \
   echo "  MISSING: $eager page(s) still load the chat widget eagerly — hero gets covered on mobile"
+
+# ---- SEO checks (a8–a13). SEO is a launch gate, not a nice-to-have. ----
+
+# (a8) Technical-SEO files exist and have no leftover [DOMAIN] tokens.
+for f in robots.txt sitemap.xml llms.txt; do
+  [ -f "$f" ] && echo "  ✓ $f present" || echo "  MISSING: $f (technical SEO)"
+done
+grep -l "\[[A-Z_]\+\]" robots.txt sitemap.xml llms.txt 2>/dev/null \
+  && echo "  MISSING: unfilled [TOKEN] in an SEO file — did Step 5 substitute .txt/.xml?" \
+  || echo "  ✓ SEO files fully substituted"
+
+# (a9) Every page has exactly ONE <h1>. Zero = no SEO signal; more than one = diluted.
+for f in *.html resources/*.html; do
+  n=$(grep -oc "<h1" "$f" 2>/dev/null); n=${n//[^0-9]/}; [ -z "$n" ] && n=0
+  [ "$n" = "1" ] || echo "  H1 ISSUE: $f has $n <h1> (must be exactly 1)"
+done
+
+# (a10) Every page has a canonical + OpenGraph + Twitter tags.
+for f in *.html resources/*.html; do
+  grep -q 'rel="canonical"' "$f" || echo "  MISSING canonical: $f"
+  grep -q 'og:title' "$f"        || echo "  MISSING OpenGraph: $f"
+  grep -q 'twitter:card' "$f"    || echo "  MISSING Twitter card: $f"
+done
+
+# (a11) Homepage carries JSON-LD structured data.
+grep -q 'application/ld+json' index.html \
+  && echo "  ✓ JSON-LD present on homepage" \
+  || echo "  MISSING: JSON-LD structured data on index.html"
+
+# (a12) Titles unique + <=60 chars; meta descriptions unique + <=160 chars.
+python3 - <<'PYEOF'
+import glob, re, html
+seen_t, seen_d = {}, {}
+for f in glob.glob('*.html') + glob.glob('resources/*.html'):
+    t = open(f, encoding='utf-8', errors='ignore').read()
+    mt = re.search(r'<title>(.*?)</title>', t, re.S)
+    md = re.search(r'<meta name="description" content="(.*?)"', t, re.S)
+    if mt:
+        title = html.unescape(mt.group(1)).strip()
+        if len(title) > 60: print(f"  TITLE >60 chars ({len(title)}): {f}")
+        seen_t.setdefault(title, []).append(f)
+    else:
+        print(f"  NO <title>: {f}")
+    if md:
+        desc = html.unescape(md.group(1)).strip()
+        if len(desc) > 160: print(f"  META DESC >160 chars ({len(desc)}): {f}")
+        seen_d.setdefault(desc, []).append(f)
+    else:
+        print(f"  NO meta description: {f}")
+for title, fs in seen_t.items():
+    if len(fs) > 1: print(f"  DUPLICATE title across {fs}")
+for desc, fs in seen_d.items():
+    if len(fs) > 1: print(f"  DUPLICATE meta description across {fs}")
+PYEOF
+
+# (a13) No orphan SEO tokens left in social tags.
+grep -rn "\[SEO_TITLE\]\|\[SEO_DESC\]" . --include="*.html" \
+  && echo "  MISSING: Step 9 didn't sync og/twitter — [SEO_TITLE]/[SEO_DESC] still present" \
+  || echo "  ✓ og/twitter title+description synced"
 
 # (b) No free-trial language
 grep -rniE "free trial|try .*free|start free|14[- ]day free" . --include="*.html" \

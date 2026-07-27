@@ -1,0 +1,23 @@
+# [PRODUCT_NAME]
+
+> [PRODUCT_NAME] is an all-in-one AI-powered growth platform built exclusively for [NICHE_NOUN_PLURAL]. It replaces disconnected tools with a single system covering CRM, booking, Voice AI, Conversation AI, SMS/email marketing, reputation management, memberships, analytics, and payments.
+
+## Key Pages
+
+- [Homepage](https://[DOMAIN]/): Platform overview and value proposition
+- [Features](https://[DOMAIN]/features.html): Full feature breakdown — Voice AI, Conversation AI, CRM, automation, analytics, memberships
+- [Pricing](https://[DOMAIN]/pricing.html): Plans and what's included
+- [Use Cases](https://[DOMAIN]/use-cases.html): How [PRODUCT_NAME] solves real problems for [NICHE_NOUN_PLURAL]
+- [About](https://[DOMAIN]/about.html): Company background and mission
+- [Blog](https://[DOMAIN]/resources/blog.html): [NICHE_NOUN_TITLE] business growth, AI, and operations content
+- [Revenue Calculator](https://[DOMAIN]/resources/revenue-calculator.html): Estimate the revenue impact of automation
+- [Contact](https://[DOMAIN]/contact.html): Get in touch or book a demo
+
+## Who It's For
+
+[NICHE_NOUN_PLURAL] who want to capture more leads, book more jobs, and follow up automatically — without hiring more staff or juggling five different apps.
+
+## Notes
+
+- Built on a full-stack, AI-powered platform (Voice AI receptionist + Conversation AI chat).
+- One system: CRM, scheduling, messaging, marketing, reviews, payments, and analytics.

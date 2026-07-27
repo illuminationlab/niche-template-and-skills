@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+Disallow: /book-demo.html
+
+# AI answer engines — allow (we want to be cited in AI answers)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Scrapers with no SEO value — block
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://[DOMAIN]/sitemap.xml
