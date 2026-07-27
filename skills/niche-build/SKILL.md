@@ -364,6 +364,17 @@ grep -rn "\[SEO_TITLE\]\|\[SEO_DESC\]" . --include="*.html" \
   && echo "  MISSING: Step 9 didn't sync og/twitter — [SEO_TITLE]/[SEO_DESC] still present" \
   || echo "  ✓ og/twitter title+description synced"
 
+# (a14) Favicon must be the shield image, never a hardcoded text-initials SVG.
+# The template historically shipped an inline data:image/svg favicon with "NM"
+# baked in — every clone inherited a NeedleMoved tab icon. The head must link to
+# the generated /public/brand/favicon-*.png (from master-square), and the
+# generated files must exist.
+grep -rln 'rel="icon" href="data:image/svg' --include="*.html" . \
+  && echo "  MISSING: inline text-SVG favicon still present — replace with /public/brand/favicon links" \
+  || echo "  ✓ favicon uses the shield image, not text initials"
+[ -f public/brand/favicon-32.png ] && echo "  ✓ favicon-32.png generated" \
+  || echo "  MISSING: public/brand/favicon-32.png (run resize-brand on master-square)"
+
 # (b) No free-trial language
 grep -rniE "free trial|try .*free|start free|14[- ]day free" . --include="*.html" \
   | grep -vE "(COUPON|NO free trial|ban list|FREE_TRIAL = NO)"
