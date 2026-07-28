@@ -8,6 +8,7 @@
 - [Features](https://[DOMAIN]/features.html): Full feature breakdown — Voice AI, Conversation AI, CRM, automation, analytics, memberships
 - [Pricing](https://[DOMAIN]/pricing.html): Plans and what's included
 - [Use Cases](https://[DOMAIN]/use-cases.html): How [PRODUCT_NAME] solves real problems for [NICHE_NOUN_PLURAL]
+- [Start a Business](https://[DOMAIN]/new-business.html): The complete roadmap to starting a [NICHE] business — licensing, costs, pricing, first customers — and how [PRODUCT_NAME] helps from day one
 - [About](https://[DOMAIN]/about.html): Company background and mission
 - [Blog](https://[DOMAIN]/resources/blog.html): [NICHE_NOUN_TITLE] business growth, AI, and operations content
 - [Revenue Calculator](https://[DOMAIN]/resources/revenue-calculator.html): Estimate the revenue impact of automation

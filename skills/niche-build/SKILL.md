@@ -16,7 +16,7 @@ The template lives at `/Users/laurenwilliams/Desktop/repos/niche-sites/_website-
 
 1. Niche repo exists at `/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/`
 2. `variables.json` exists in the niche repo with all Section 0 variables filled
-3. `content.md` exists in the niche repo with all 7 pages written
+3. `content.md` exists in the niche repo with all 8 pages written
 4. Niche repo contains two master brand assets at known filenames:
    - `master-logo.svg` (or `.png`) — the full-color logo
    - `master-square.png` (or `.svg`) — square 1024×1024+ for favicon/apple-touch/android
@@ -165,6 +165,7 @@ The template HTML ships with **unprefixed** form_location values (clean canonica
 | Any newsletter signup (resources hub, blog index, blog stub pages) | `newsletter` |
 | `resources/revenue-calculator.html` lead form | `revenue-calculator` |
 | `resources/playbook.html` download form | `playbook-download` |
+| `new-business.html` startup-checklist download | `startup-checklist` |
 
 During build, **run this substitution in every HTML file in the niche repo** — prepending `<DRIP_TAG_PREFIX>-` to each value:
 
@@ -175,6 +176,7 @@ find . -name "*.html" -type f ! -path "./public/*" -exec sed -i '' \
   -e "s|name=\"form_location\" value=\"newsletter\"|name=\"form_location\" value=\"${PREFIX}-newsletter\"|g" \
   -e "s|name=\"form_location\" value=\"revenue-calculator\"|name=\"form_location\" value=\"${PREFIX}-revenue-calculator\"|g" \
   -e "s|name=\"form_location\" value=\"playbook-download\"|name=\"form_location\" value=\"${PREFIX}-playbook-download\"|g" \
+  -e "s|name=\"form_location\" value=\"startup-checklist\"|name=\"form_location\" value=\"${PREFIX}-startup-checklist\"|g" \
   {} \;
 ```
 
@@ -186,7 +188,7 @@ grep -rh 'name="form_location"' --include="*.html" . | grep -oE 'value="[^"]+"' 
 
 No unprefixed values should remain.
 
-**Why prefix per-niche**: the shared LEAD_WEBHOOK n8n switch node has one branch per `<prefix>-<form_type>` value across every niche site. Three new branches per niche get added manually in n8n (see `/niche-launch` step 6). Newsletter is routed to a separate NEWSLETTER_WEBHOOK workflow — no switch branch needed there.
+**Why prefix per-niche**: the shared LEAD_WEBHOOK n8n switch node has one branch per `<prefix>-<form_type>` value across every niche site. Four new branches per niche get added manually in n8n — `contact`, `revenue-calculator`, `playbook-download`, and `startup-checklist` (see `/niche-launch` step 6). Newsletter is routed to a separate NEWSLETTER_WEBHOOK workflow — no switch branch needed there.
 
 If a new form type ever needs its own branch, add the 5th entry to both the template HTML vocabulary and this substitution step — AND coordinate adding matching branches in the n8n switch before launching.
 
@@ -203,7 +205,7 @@ if (window.SITE_CONFIG && window.SITE_CONFIG.source_site) {
 
 ### 9. Apply `content.md` to pages
 
-Read `<niche-repo>/content.md`. Map each of the 7 page sections to the corresponding HTML file:
+Read `<niche-repo>/content.md`. Map each of the 8 page sections to the corresponding HTML file:
 
 | content.md section | HTML file |
 | --- | --- |
@@ -214,6 +216,7 @@ Read `<niche-repo>/content.md`. Map each of the 7 page sections to the correspon
 | Page 5: Pricing | `pricing.html` (merge with locked pricing block from playbook Section 3 — locked pricing wins on conflict) |
 | Page 6: About Us | `about.html` |
 | Page 7: Contact Us | `contact.html` |
+| Page 8: Starting a New [Niche] Business | `new-business.html` |
 
 For each page:
 - Replace the hero copy (headline, subheadline, CTAs) with content.md copy

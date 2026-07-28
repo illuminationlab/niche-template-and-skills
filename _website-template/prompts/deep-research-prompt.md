@@ -117,12 +117,13 @@ Before writing any copy, conduct deep research on:
 3. Top competitor tools already used in this niche and what they're missing
 4. Common objections to switching software
 5. High-value SEO keywords specific to `[NICHE]` + CRM / marketing automation / AI receptionist / booking software
+6. The startup path for a brand-new `[NICHE]` business — licensing/certification/insurance requirements, realistic startup costs, how new owners land their first customers, and the top "how to start a `[NICHE]` business" search queries (for the New Business page)
 
 Use your findings to inform every page's messaging, headlines, and keyword strategy. The copy should feel like it was written by someone who deeply understands `[NICHE]` — not generic SaaS copy with the niche name swapped in.
 
 ---
 
-## DELIVERABLE: 7-PAGE CONTENT & SEO PLAN
+## DELIVERABLE: 8-PAGE CONTENT & SEO PLAN
 
 Produce complete, publish-ready copy for each page below. For each page include:
 
@@ -205,6 +206,20 @@ Goal: Low-friction page that converts visitors into leads or demos.
 - Reassurance copy: response time, no hard sell, etc.
 - Note: Once they submit, they may receive an automated follow-up via Conversation AI or a call from Voice AI — frame this as a benefit, not a surprise
 
+### PAGE 8 — STARTING A NEW [NICHE] BUSINESS
+
+Goal: Capture people who are just STARTING a `[NICHE]` business — a top-of-funnel, low-competition audience — and show how `[WEBSITE_NAME]` makes them look established from day one.
+
+- Primary keyword: "how to start a `[NICHE]` business" / "starting a `[NICHE]` business". Secondary: `[NICHE]` startup checklist, `[NICHE]` business plan, how much it costs to start a `[NICHE]` business, `[NICHE]` license requirements
+- Intent is informational → soft commercial. Teach first, sell second.
+- Lead with empathy: they don't need every answer figured out yet — most owners don't on day one
+- The roadmap (6 steps; fill with niche-specific detail from your research): (1) licensing, certification & insurance, (2) registering the business (entity, EIN, permits), (3) tools, equipment & realistic startup costs, (4) setting prices & quoting first jobs, (5) getting your first customers (Google Business Profile, reviews, local marketing), (6) the systems that keep a new owner from drowning
+- "You don't have the answers yet — that's what `[WEBSITE_NAME]` is for": map each early-stage fear to the feature that removes it (missed calls → Voice AI; no reviews → Reputation AI; no time to chase leads → missed-call text-back + follow-up; can't afford staff → one system at startup pricing; can't get found → funnels / booking pages / Google Business tie-in)
+- Lead magnet: a "`[NICHE]` startup checklist" download (form_location `startup-checklist`)
+- FAQ section (feeds FAQPage schema): licensing, startup cost, "can I run this solo?", "when should I get software?", "do I need a website first?"
+- Cite costs and requirements as honest ranges — never fabricate exact figures
+- CTA: "Book a Demo" + the checklist download
+
 ---
 
 ## OUTPUT FORMAT
@@ -221,6 +236,7 @@ Return the full content as a single Markdown file using this structure:
 ## Page 5: Pricing
 ## Page 6: About Us
 ## Page 7: Contact Us
+## Page 8: Starting a New [Niche] Business
 ```
 
 Each page section must include the SEO block (keywords, meta title, meta description) before the copy.
