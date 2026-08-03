@@ -23,12 +23,13 @@ Default brand for **every** niche site: teal accent `#00b0b8` + navy secondary `
 | cc | pest | Call and Crawl | pest control | callandcrawl.com | `#00b0b8` (+ `#002445`) | Live | 2026-04-26 | `repos/niche-sites/CallAndCrawl` |
 | wb | electrician | WattsBooked | electrical contracting | wattsbooked.com | `#00b0b8` (+ `#002445`) | Live | 2026-07-23 | `repos/niche-sites/WattsBooked` |
 | ft | golf | FullTeeSheet | golf course | fullteesheet.com | `#00b0b8` (+ `#002445`) | Live | 2026-07-30 | `repos/niche-sites/FullTeeSheet` |
+| lb | limo | LimoBooked | limousine service | limobooked.com | `#00b0b8` (+ `#002445`) | Live | 2026-08-03 | `repos/niche-sites/LimoBooked` |
 
 ## Planned / reserved
 
 | NICHE_CODE | DRIP_TAG_PREFIX | PRODUCT_NAME | NICHE | Domain | Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| lb | limo | LimoBooked | limousine service | limobooked.com | Planned | Reserved 2026-08-03; all-3-forms, $99/270 pricing |
+| (none yet) | | | | | |
 
 ## Retired (do not reuse these codes or drip prefixes)
 
