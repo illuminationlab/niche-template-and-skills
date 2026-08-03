@@ -2,3 +2,12 @@
 .claude/
 node_modules/
 *.log
+
+# Build meta / secrets — MUST never ship (Coolify serves repo root publicly)
+content.md
+content-sources.md
+variables.json
+research-brief.md
+master-*.png
+master-*.svg
+NICHE-BUILD-PLAYBOOK.md

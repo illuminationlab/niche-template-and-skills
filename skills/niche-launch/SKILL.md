@@ -15,7 +15,7 @@ Coolify API credentials + webhook URLs live in `~/.claude/env.local`. The Coolif
 ## Preconditions (verify all before any external action)
 
 1. Current working directory is the niche repo (or user passed `<product-name>` as arg)
-2. `/niche-build` completed — `variables.json`, `NICHE-BUILD-PLAYBOOK.md` present, no `[BRACKET]` tokens remain
+2. `/niche-build` completed — `variables.json` present, no `[BRACKET]` tokens remain (the `NICHE-BUILD-PLAYBOOK.md` is currently missing — expected; not required)
 3. `gh auth status` shows an authenticated user
 4. `~/.claude/env.local` exists and `COOLIFY_API_TOKEN` + `COOLIFY_BASE_URL` are set
 5. REGISTRY row for `NICHE_CODE` is under Planned (not already Live)

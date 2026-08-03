@@ -10,7 +10,7 @@ argument-hint: "[product-name]"
 
 Phase 2 of three: **research → build → launch**. Input: a niche repo at `/Users/laurenwilliams/Desktop/repos/niche-sites/<PRODUCT_NAME_PASCAL>/` containing `variables.json`, `content.md`, and two master brand images. Output: a complete, deployable static site in the same directory, ready for `/niche-launch`.
 
-The template lives at `/Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/`. The authoritative build rules live in `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` — **read that file in full before writing a single line of code.** The playbook overrides anything in this skill on any disagreement.
+The template lives at `/Users/laurenwilliams/Desktop/repos/niche-sites/_website-template/`. **NOTE: `NICHE-BUILD-PLAYBOOK.md` is currently MISSING.** Build from this skill's steps and use the most recent live niche site (**WattsBooked**) as the reference for the pricing block/Stripe link, legal pages, book-demo, and CSS conventions. The contact form must ship the standardized fields `name, company, email, phone, intent, message` (company key, first five required).
 
 ## Preconditions (verify all before any edit)
 
@@ -61,9 +61,7 @@ Also write `_website-template/prompts/NICHE-BUILD-PLAYBOOK.md` to `<niche-repo>/
 ### 5. Replace tokens across all HTML + CSS
 
 Derive accent-color variants from `variables.accent_color` before substituting:
-- `ACCENT_COLOR_RGB` = hex converted to comma-separated RGB (house teal `#00b0b8` → `0, 176, 184`)
-- `ACCENT_COLOR_LIGHT` = hex lightened ~25% (house teal `#00b0b8` → `#4fd1d6`)
-- `ACCENT_COLOR_DARK` = hex darkened ~25% (house teal `#00b0b8` → `#007a80`)
+The template's accent tokens are `[ACCENT_COLOR]`, `[ACCENT_COLOR_BRIGHT]`, `[ACCENT_COLOR_LIGHT]`, `[ACCENT_COLOR_DEEP]` (NOT _RGB/_DARK). Use these exact house-teal values (from the live built sites): `[ACCENT_COLOR]`=`#00A3AA` (text-safe), `[ACCENT_COLOR_BRIGHT]`=`#00B0B8` (base), `[ACCENT_COLOR_LIGHT]`=`#3EC4CA`, `[ACCENT_COLOR_DEEP]`=`#007177`.
 
 Use Python's `colorsys` or a manual HSL shift. Report all three derived values to the user alongside the locked `ACCENT_COLOR` for sanity-check before proceeding.
 
@@ -76,9 +74,9 @@ In every `.html`, `.css`, **`.txt` and `.xml`** file in the niche repo, run thes
 [NEWSLETTER_WEBHOOK]      → env.NEWSLETTER_WEBHOOK
 [ACCENT_COLOR]            → variables.accent_color            (house default #00b0b8)
 [ACCENT_COLOR_URL]        → variables.accent_color URL-encoded (e.g. %2300b0b8)
-[ACCENT_COLOR_RGB]        → derived (e.g. 0, 176, 184)
-[ACCENT_COLOR_LIGHT]      → derived (e.g. #4fd1d6)
-[ACCENT_COLOR_DARK]       → derived (e.g. #007a80)
+[ACCENT_COLOR_BRIGHT]     → #00B0B8  (teal base)
+[ACCENT_COLOR_LIGHT]      → #3EC4CA
+[ACCENT_COLOR_DEEP]       → #007177
 [COPYRIGHT_YEAR]          → current year (e.g. 2026)
 [TESTIMONIAL_NAME]        → fabricated full name appropriate for the niche (e.g. "Danielle Rivera")
 [TESTIMONIAL_INITIALS]    → first letter of first + last name (e.g. "DR"), MUST match the name avatar circle
@@ -89,7 +87,7 @@ In every `.html`, `.css`, **`.txt` and `.xml`** file in the niche repo, run thes
 
 Note the two SEO tokens `[SEO_TITLE]` and `[SEO_DESC]` in every page's OpenGraph/Twitter tags (and `[SEO_DESC]` in the homepage JSON-LD). **Do NOT fill these here** — they get set in Step 9 to exactly match each page's real `<title>` and `<meta description>` from `content.md`. The bracket sweep below will flag them if Step 9 misses any.
 
-Also: set the default `CONTACT_EMAIL` to `info@<DOMAIN>` (e.g. `info@engineguild.com`). The `info@` alias is always created at domain purchase. Only override if the user explicitly specifies a different customer-facing email.
+Also: set the default `CONTACT_EMAIL` to `clients@illuminationlab.io` — the single monitored client inbox (per-domain `info@<DOMAIN>` aliases do NOT exist and bounce, so never use them). Only override if the user explicitly specifies a different customer-facing email.
 
 **Fabricated testimonial guidance:** generate a believable name + business + city for the niche. The testimonial quote in the template already mentions the product replacing prior tools and improving conversion — keep that, just personalize the author. Pick a city that's a real industry cluster (med spas → Scottsdale/Miami/Beverly Hills; roofing → Dallas/Tampa; small engine repair → rural Midwest towns; pest control → Phoenix/Houston). NEVER ship `[TESTIMONIAL_*]`, `[Placeholder ...]`, `[Logo N]`, `[Client Name]`, or any other unreplaced bracket. NEVER ship a logo strip ("Trusted by X across the country" + [Logo 1][Logo 2]...) — fake logos look amateur and real logos require permissions you don't have.
 

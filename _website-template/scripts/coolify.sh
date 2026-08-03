@@ -29,12 +29,12 @@ _coolify_curl() {
 
   local url="${COOLIFY_BASE_URL%/}${path}"
   if [[ -n "$body" ]]; then
-    curl -sS -X "$method" "$url" \
+    /usr/bin/curl -sS -X "$method" "$url" \
       -H "Authorization: Bearer $COOLIFY_API_TOKEN" \
       -H "Content-Type: application/json" \
       -d "$body"
   else
-    curl -sS -X "$method" "$url" \
+    /usr/bin/curl -sS -X "$method" "$url" \
       -H "Authorization: Bearer $COOLIFY_API_TOKEN" \
       -H "Content-Type: application/json"
   fi
