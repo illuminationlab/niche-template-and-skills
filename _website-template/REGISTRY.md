@@ -28,7 +28,7 @@ Default brand for **every** niche site: teal accent `#00b0b8` + navy secondary `
 
 | NICHE_CODE | DRIP_TAG_PREFIX | PRODUCT_NAME | NICHE | Domain | Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| (none yet) | | | | | |
+| lb | limo | LimoBooked | limousine service | limobooked.com | Planned | Reserved 2026-08-03; all-3-forms, $99/270 pricing |
 
 ## Retired (do not reuse these codes or drip prefixes)
 

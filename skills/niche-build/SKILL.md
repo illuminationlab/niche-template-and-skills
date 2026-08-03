@@ -227,6 +227,8 @@ For each page:
 
 `book-demo.html`: no content.md section. The page stays as the GHL calendar embed per playbook Section 4d — just confirm the iframe src still uses the shared `McMT8bQnMFU8gw2dk8cY` widget ID.
 
+**FAQPage schema (SEO/AEO — required on every page with an FAQ accordion).** After applying content.md, for EACH page that contains a `.faq-question` accordion (typically `index.html`, `pricing.html`, and often `new-business.html`), generate a `FAQPage` JSON-LD block and inject it into `<head>`. Build each `Question.name` from the `.faq-question` button text and each `acceptedAnswer.text` from the matching `.faq-answer-inner` text (strip tags, unescape HTML entities), then validate it `json.loads`-parses. This is a real ranking lever: money queries like `<niche> booking software` show a Google AI Overview, and FAQPage schema is what gets the page's Q&As cited + eligible for rich results. Do NOT hardcode the questions — read them from the page so they always match the visible copy.
+
 ### 10. Generate the legal pages
 
 `privacy.html` and `terms.html` in the template are NeedleMoved's legal content. Rewrite them using the legal variables (`LEGAL_ENTITY`, `FORMATION_STATE`, `GOVERNING_LAW`, `EFFECTIVE_DATE`, `CONTACT_EMAIL`, `MAILING_ADDRESS`) per playbook Section 9. Include GDPR, CCPA, retention, cookie policy, and dispute resolution clauses — full text, not placeholders. Keep the "HIPAA Business Associate" section only if the niche is healthcare-adjacent; remove for non-HIPAA niches.
@@ -375,6 +377,16 @@ grep -rln 'rel="icon" href="data:image/svg' --include="*.html" . \
   || echo "  ✓ favicon uses the shield image, not text initials"
 [ -f public/brand/favicon-32.png ] && echo "  ✓ favicon-32.png generated" \
   || echo "  MISSING: public/brand/favicon-32.png (run resize-brand on master-square)"
+
+# (a15) FAQPage schema on every page that has an FAQ accordion. Money queries
+# ("<niche> booking software") show an AI Overview; FAQPage JSON-LD is what gets
+# a page's Q&As cited + eligible for rich results. Any page with .faq-question
+# blocks MUST also carry a FAQPage JSON-LD block (generated in Step 9).
+for f in *.html; do
+  if grep -q "faq-question" "$f" && ! grep -q "\"FAQPage\"" "$f"; then
+    echo "  MISSING FAQPage schema: $f (has an FAQ accordion but no FAQPage JSON-LD)"
+  fi
+done
 
 # (b) No free-trial language
 grep -rniE "free trial|try .*free|start free|14[- ]day free" . --include="*.html" \
