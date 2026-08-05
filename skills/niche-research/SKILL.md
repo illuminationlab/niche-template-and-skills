@@ -91,6 +91,10 @@ Tell the user to open `content.md`, review, and either approve or ask for revisi
 
 Two sentences only. What was reserved, what file was produced, next step is `/niche-build`.
 
+## Keyword logging (required)
+
+After the OpenSEO keyword pass, write the site's money + secondary + New-Business keywords to the **SEO keyword-tracking repo**: `~/Desktop/repos/seo-keyword-tracking-by-niche-site/<PRODUCT_NAME_PASCAL>/keywords.md` (create the folder for a new site). Use the fat-head / chunky-middle / long-tail table format (see that repo's README) and mark each ✅ verified / ○ proposed. Commit + push (private repo `illuminationlab/seo-keyword-tracking-by-niche-site`). Target intent-rich long-tail, not consumer fat-head.
+
 ## Invariants
 
 - Never create the niche repo directory under any name other than PascalCase product name (matches `/repos/niche-sites/NeedleMoved`, `/repos/niche-sites/RafterElite` siblings)

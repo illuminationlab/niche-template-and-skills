@@ -78,6 +78,10 @@ Return, in this order:
 3. **Prioritized fix list** — highest-impact first (e.g. "1. Rewrite H1 to lead with primary keyword; 2. Add FAQPage schema; 3. Cut title to 58 chars"). Note which fixes need a human (e.g. building backlinks, page-speed infra).
 4. **The research basis** — the keyword set + volumes/difficulty (or "estimated from web research; connect OpenSEO for exact numbers") so the user can trust the choices.
 
+## Keyword logging (required)
+
+After the audit, add any new long-tail / striking-distance terms you surface to the site's folder in the keyword-tracking repo (`~/Desktop/repos/seo-keyword-tracking-by-niche-site/<Site>/keywords.md`), with Vol/KD/intent/status, then commit + push.
+
 ## Invariants
 - **Always research at run time.** Never optimize from memory or generic best-practice alone.
 - **Never fabricate metrics.** If you don't have real volume/difficulty (no OpenSEO), say the numbers are estimates and show your basis.
