@@ -151,6 +151,14 @@ For **every** HTML file in the niche repo (including `privacy.html` and `terms.h
 
 The chatbot renders on legal pages too — there's no compliance reason to exclude them, and users on privacy/terms are exactly the ones most likely to have support questions.
 
+**Analytics (Plausible) — required on every page.** Every page must carry the self-hosted Plausible tag in `<head>`. It is **per-site**: the newer `pa-<hash>.js` installed-script has the domain baked *into the file*, so you can NEVER reuse another site's snippet (it would log this site's traffic under the wrong domain — confirm with `curl <script-url> | grep domain:`). Ask the user to create the site at `analytics.illuminationlab.io`, paste its snippet, then inject it into EVERY page's `<head>` before `</head>`:
+```html
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://analytics.illuminationlab.io/js/pa-<SITE_HASH>.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+```
+If a classic `script.js` + `data-domain` Plausible tag is already present (a parallel session sometimes adds one), REMOVE it so pageviews aren't double-counted — keep only the `pa-` tag. For the Next.js niche (RafterElite), add it via `next/script` in `app/layout.tsx`, not raw HTML.
+
 ### 7. Prefix `form_location` hidden inputs with `DRIP_TAG_PREFIX`
 
 The shared n8n switch node branches by the exact literal value of `{{ $json.form_location }}`. Every niche site must POST a prefixed form_location so the switch can route per-niche (e.g., `engine-contact` vs. `rafter-contact`).
